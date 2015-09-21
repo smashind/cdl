@@ -1,12 +1,20 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
+gem 'pg'
+gem 'devise'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+
+# Bootstrap
+gem 'bootstrap-sass', '~> 3.3.1'
+gem 'autoprefixer-rails'
+# Bootswatch Template
+gem 'bootswatch-rails'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -38,6 +46,22 @@ group :development, :test do
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
+  gem 'rspec-rails', '~> 3.0.0'
+  gem 'bullet'
+end
+
+# Test Suite
+group :test do 
+	gem 'selenium-webdriver'
+	gem 'capybara'
+	gem 'launchy'
+	gem 'factory_girl_rails'
+	gem 'database_cleaner', github: 'bmabey/database_cleaner'
+end
+
+# For heroku (ensures that asset pipeline is correctly used)
+group :production, :staging do
+	gem 'rails_12factor'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
