@@ -13,3 +13,20 @@
  *= require_tree .
  *= require_self
  */
+
+@import "bootstrap-sprockets";
+
+// First import united variables
+@import "bootswatch/yeti/variables";
+
+// Then bootstrap itself
+@import "bootstrap";
+
+// And finally bootswatch style itself
+@import "bootswatch/yeti/bootswatch";
+
+html {
+  position: relative;
+  min-height: 100%;
+  overflow-x: hidden;
+}
