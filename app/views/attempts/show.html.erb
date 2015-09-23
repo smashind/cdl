@@ -5,7 +5,7 @@
 	Your current place: <%= @attempt.place %>
 <% elsif @attempt.completed %>
 	<h3>Your score was: <%= @attempt.score %> correct out of <%= @attempt.test.questions.count %> questions</h3>
-	<p><%= link_to "Try this test again", test_path(@attempt.test), id: "clear-score" %></p>
+	<p><%= link_to "Try this test again", test_question_path(@attempt.test.id, @attempt.test.questions.first.id), id: "clear-score" %></p>
 <% else %>
   <p>There was a problem.</p>
 <% end %>

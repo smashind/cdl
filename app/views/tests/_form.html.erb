@@ -1,3 +1,11 @@
+<% content_for :head do %>
+  <style>
+  .nested_test_questions_0_choices:nth-of-type(5) {
+    display: none;
+  }
+  </style>
+<% end %>
+
 <%= form_for(@test) do |f| %>
   <% if @test.errors.any? %>
     <div id="error_explanation">
@@ -15,13 +23,19 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
-  <div id="questions">
-    <%= f.fields_for :questions do |q| %>
-      <%= render 'question_fields', f: q %>
+  <div class="field">
+    <%= f.nested_fields_for :questions do |q| %>
+      <p><%= q.label :text, "Question" %>      
+      <%= q.text_field :text %></p>
+      <% 4.times { q.object.send(:choices).build } %>
+      <%= q.nested_fields_for :choices do |c| %>
+        <p class="choices"><%= c.label :answer, "Answer" %>      
+        <%= c.text_field :answer %>
+        <%= c.label :is_correct %>
+        <%= c.check_box :is_correct %></p>
+      <% end %>
     <% end %>
-    <div class="links">
-      <%= link_to_add_association 'Add Question', f, :questions %>
-    </div>
+    <%= f.add_nested_fields_link :questions %>
   </div>
   <div class="actions">
     <%= f.submit %>

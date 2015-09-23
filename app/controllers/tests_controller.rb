@@ -20,6 +20,7 @@ class TestsController < ApplicationController
   def new
     @test = Test.new
     @question = @test.questions.build
+    @choice = @question.choices.build
   end
 
   # GET /tests/1/edit

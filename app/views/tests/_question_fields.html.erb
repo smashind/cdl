@@ -1,12 +1,24 @@
-<div class="nested-fields">
-	<%= f.label :text, "Question" %>      
-	<%= f.text_area :text %>
-	<%= f.hidden_field :test_id, value: @test.id %>
-	<% f.object.send(:choices).build %>
-	<div id="choices">
-		<%= f.fields_for :choices do |c| %>
-		  <%= render 'choice_fields', f: c %>
-		<% end %>
-	</div>
-	<%= link_to_remove_association "Remove question", f %>
+<div class="field">
+  <%= f.fields_for :questions do |q| %>
+    <p><%= q.label :text, "Question" %>      
+    <%= q.text_field :text %></p>
+    <%= q.fields_for :choices do |c| %>
+      <p><%= c.label :answer, "Answer" %>      
+      <%= c.text_field :answer %>
+      <%= c.label :is_correct %>
+      <%= c.check_box :is_correct %></p>
+       <p><%= c.label :answer, "Answer" %>      
+      <%= c.text_field :answer %>
+      <%= c.label :is_correct %>
+      <%= c.check_box :is_correct %></p>
+       <p><%= c.label :answer, "Answer" %>      
+      <%= c.text_field :answer %>
+      <%= c.label :is_correct %>
+      <%= c.check_box :is_correct %></p>
+       <p><%= c.label :answer, "Answer" %>      
+      <%= c.text_field :answer %>
+      <%= c.label :is_correct %>
+      <%= c.check_box :is_correct %></p>
+    <% end %>
+  <% end %>
 </div>

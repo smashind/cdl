@@ -5,7 +5,7 @@ gem 'rails', '4.2.3'
 
 gem 'pg'
 gem 'devise'
-gem 'cocoon'
+gem 'nested_form_fields'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
