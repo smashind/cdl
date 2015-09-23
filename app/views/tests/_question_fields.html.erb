@@ -1,0 +1,12 @@
+<div class="nested-fields">
+	<%= f.label :text, "Question" %>      
+	<%= f.text_area :text %>
+	<%= f.hidden_field :test_id, value: @test.id %>
+	<% f.object.send(:choices).build %>
+	<div id="choices">
+		<%= f.fields_for :choices do |c| %>
+		  <%= render 'choice_fields', f: c %>
+		<% end %>
+	</div>
+	<%= link_to_remove_association "Remove question", f %>
+</div>

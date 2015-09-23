@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  resources :attempts
   resources :choices
   resources :questions
-  resources :tests
+  resources :tests do
+    resources :questions
+  end
   devise_for :users
   root 'pages#index'
 

@@ -1,0 +1,25 @@
+<h2><%= @attempt.test.name %> Test</h2>
+<% if @attempt.place? %>
+	<a href='../tests/<%= @attempt.test.id %>/questions/<%= @attempt.place %>?attempt=<%= @attempt.id %>'>Resume</a>
+	Your current score: <%= @attempt.score %>
+	Your current place: <%= @attempt.place %>
+<% elsif @attempt.completed %>
+	<h3>Your score was: <%= @attempt.score %> correct out of <%= @attempt.test.questions.count %> questions</h3>
+	<p><%= link_to "Try this test again", test_path(@attempt.test), id: "clear-score" %></p>
+<% else %>
+  <p>There was a problem.</p>
+<% end %>
+
+<script>
+  // Start the test over - clears the session storage score
+	$("#clear-score").click(function() {
+		sessionStorage.clear();
+	})
+	// Resume the test
+  $("#resume-test").click(function() {
+  	// Set attempt_id session storage
+  	sessionStorage.setItem("attempt_id", "<%= @attempt.id %>");
+  	// Set current score
+  	sessionStorage.setItem("score", "<%= @attempt.score %>");
+  })
+</script>

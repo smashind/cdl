@@ -12,9 +12,4 @@ RSpec.describe Question, type: :model do
   	before { question.text = nil }
   	it { is_expected.to_not be_valid }
   end
-
-  describe "when test ID is not present" do 
-  	before { question.test_id = nil }
-  	it { is_expected.to_not be_valid }
-  end
 end

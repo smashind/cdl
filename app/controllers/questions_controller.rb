@@ -12,7 +12,7 @@ class QuestionsController < ApplicationController
   def show
     @previous_question = @question.previous
     @next_question = @question.next
-    @survey_attempt = SurveyAttempt.new
+    @attempt = Attempt.new
   end
 
   # GET /questions/new

@@ -1,0 +1,4 @@
+<p><strong>Name:</strong> <%= @test.name %><br>
+<%= @test.questions.count %> questions</p>
+
+<p><%= link_to "Start the test", test_question_path(@test.id, @test.questions.first.id) %></p>

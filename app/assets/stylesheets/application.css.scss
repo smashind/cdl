@@ -17,13 +17,13 @@
 @import "bootstrap-sprockets";
 
 // First import united variables
-@import "bootswatch/yeti/variables";
+@import "bootswatch/flatly/variables";
 
 // Then bootstrap itself
 @import "bootstrap";
 
 // And finally bootswatch style itself
-@import "bootswatch/yeti/bootswatch";
+@import "bootswatch/flatly/bootswatch";
 
 html {
   position: relative;

@@ -1,0 +1,113 @@
+<% content_for :head do %>
+  <style>
+  #test-nav {
+  	display: none;
+  }
+  </style>
+<% end %>
+
+<p>
+  <strong>Question:</strong>
+  <%= @question.text %>
+</p>
+
+<ol><% @question.choices.each do |choice| %>
+	<input type="radio" name="answer" <% if choice.is_correct %>id="correct" data-value="<%= choice.answer %>"<% end %>><%= choice.answer %><br>
+	<% end %>
+</ol>
+
+<button type="button" id="check-answer">Submit</button>
+
+<!-- Allow the user to save -->
+<div id="save">
+  <!-- Saving and quitting over a previous save -->
+	<% if params[:attempt] %>
+	  <%= form_for(@attempt = Attempt.find(params[:attempt]), url: attempt_path(@attempt), html: { method: 'put' }) do |f| %>
+		  <%= f.hidden_field :place, value: @question.id %>
+		  <%= f.hidden_field :score %>
+		  <%= f.submit "Update your save" %>
+	  <% end %>
+	<% else %>
+	<!-- Making a new save (checking first to make sure that this is not the first question) -->
+		<% unless @previous_question == nil %>
+		  <%= form_for(@attempt = Attempt.new) do |f| %>
+			  <%= f.hidden_field :test_id, value: @question.test.id %>
+			  <%= f.hidden_field :place, value: @question.id %>
+		    <%= f.hidden_field :score %>
+			  <%= f.submit "Save and resume later" %>
+		  <% end %>
+		<% end %>
+	<% end %>
+</div>
+
+<!-- Completing the test or showing a next button option-->
+<div id="test-nav" style="display: none";>
+  <!-- If there is no next question, the finish buttons are shown -->
+	<% if @next_question.nil? %>
+	  <!-- Check if this is updating a previous attempt, or creating and finishing a new one -->
+	  <% if params[:attempt] %>
+	  	<%= form_for(@attempt = Attempt.find(params[:attempt]), url: attempt_path(@attempt), html: { method: 'put' }) do |f| %>
+			  <%= f.hidden_field :test_id, value: @question.test.id %>
+			  <%= f.hidden_field :score, id: "finish-score" %>
+			  <%= f.hidden_field :place, value: nil %>
+			  <%= f.hidden_field :completed, value: true %>
+			  <%= f.submit "Finish" %>
+	    <% end %>
+	  <% else %>
+		  <%= form_for(@attempt = Attempt.new) do |f| %>
+			  <%= f.hidden_field :test_id, value: @question.test.id %>
+			  <%= f.hidden_field :score, id: "finish-score" %>
+			  <%= f.hidden_field :place, value: nil %>
+			  <%= f.hidden_field :completed, value: true %>
+			  <%= f.submit "Finish" %>
+	    <% end %>
+	  <% end %>
+	<% else %>
+	  <!-- If there is another question and this is a continuation, this is the "Next" button -->
+	  <% if params[:attempt] %>
+	    <% url = request.original_url %>
+	    <% u = URI.parse(url) %>
+	    <% p = CGI.parse(u.query) %>
+	    <% id = p['attempt'].first %>
+	    <a href='/tests/<%= @question.test.id %>/questions/<%= @next_question.id %>?attempt=<%= id %>'>Next question</a>
+	  <% else %>
+	    <!-- If this is a new attempt, this is the simple next button -->
+	    <%= link_to "Next question", test_question_path(params[:test_id], @next_question.id) %>
+	  <% end %>
+	<% end %>
+</div>
+
+<script>
+$('#check-answer').click(function() {
+	if($('#correct').is(':checked')) { 
+		alert("You chose the right answer");
+		if (sessionStorage.getItem("score") === null) { 
+			sessionStorage.setItem("score", 1);
+			$('#attempt_score').val(parseInt(sessionStorage.getItem("score")));
+			$('#finish-score').val(parseInt(sessionStorage.getItem("score")));
+		} else {
+			sessionStorage.setItem("score", parseInt(sessionStorage.getItem("score")) + 1);
+			$('#attempt_score').val(parseInt(sessionStorage.getItem("score")));
+			$('#finish-score').val(parseInt(sessionStorage.getItem("score")));
+		}
+		$('#yourscore').html(sessionStorage.getItem("score"));
+		$('#attempt_score').val(parseInt(sessionStorage.getItem("score")));
+		$('#finish-score').val(parseInt(sessionStorage.getItem("score")));
+	} else {
+		alert("Incorrect. The correct answer was " + '"' + $("input[id=correct]").attr("data-value") + '"');
+		$('#attempt_score').val(parseInt(sessionStorage.getItem("score")));
+		$('#finish-score').val(parseInt(sessionStorage.getItem("score")));
+	}
+	$("#check-answer").fadeOut("fast");
+	$("#test-nav").fadeIn("fast");
+	$("#save").fadeOut("fast");
+	$('#attempt_score').val(parseInt(sessionStorage.getItem("score")));
+	$('#finish-score').val(parseInt(sessionStorage.getItem("score")));
+});
+// Update user's score
+$(document).on("page:change", function() {
+	var user_score = parseInt(sessionStorage.getItem("score"));
+	$('#attempt_score').val(user_score);
+  $('#yourscore').html(parseInt(sessionStorage.getItem("score")));
+});
+</script>

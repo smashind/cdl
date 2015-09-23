@@ -1,0 +1,10 @@
+<h1>CDL Practice Tests</h1>
+
+<% @tests.each do |test| %>
+  <p><%= test.name %> - <%= test.questions.size %> Questions - <%= link_to "Start the test", test_question_path(test.id, test.questions.first.id) %><br>
+  <%= link_to 'Edit', edit_test_path(test) %> | <%= link_to 'Destroy', test, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+<% end %>
+
+<br>
+
+<%= link_to 'New Quiz', new_test_path %>

@@ -19,6 +19,7 @@ class TestsController < ApplicationController
   # GET /tests/new
   def new
     @test = Test.new
+    @question = @test.questions.build
   end
 
   # GET /tests/1/edit
@@ -60,7 +61,7 @@ class TestsController < ApplicationController
   def destroy
     @test.destroy
     respond_to do |format|
-      format.html { redirect_to testzes_url, notice: 'Test was successfully destroyed.' }
+      format.html { redirect_to tests_url, notice: 'Test was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -73,6 +74,6 @@ class TestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def test_params
-      params.require(:test).permit(:name, questions_attributes: [:id, :test_id, :text, choices_attributes: [:id, :question_id, :answer, :is_correct]])
+      params.require(:test).permit(:name, questions_attributes: [:id, :test_id, :text, :_destroy, choices_attributes: [:id, :question_id, :answer, :is_correct]])
     end
 end
