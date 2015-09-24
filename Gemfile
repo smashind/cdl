@@ -6,6 +6,7 @@ gem 'rails', '4.2.3'
 gem 'pg'
 gem 'devise'
 gem 'nested_form_fields'
+gem 'jquery-turbolinks'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

@@ -1,43 +1,58 @@
-<% content_for :head do %>
-  <style>
-  .nested_test_questions_0_choices:nth-of-type(5) {
-    display: none;
-  }
-  </style>
-<% end %>
+<div class="col-md-8 col-sm-10 test-creation-form">
+  <div class="form-horizontal">
+  <%= form_for(@test) do |f| %>
+    <% if @test.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@test.errors.count, "error") %> prohibited this test from being saved:</h2>
 
-<%= form_for(@test) do |f| %>
-  <% if @test.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@test.errors.count, "error") %> prohibited this test from being saved:</h2>
+        <ul>
+        <% @test.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-      <ul>
-      <% @test.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="form-group">
+      <%= f.label :name, "Test Name", class: "col-md-2 control-label" %>
+      <div class="col-md-8">
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+    </div>
+    
+      <%= f.nested_fields_for :questions do |q| %>
+      <div class="well bs-component">
+        <div class="form-group">
+          <%= q.label :text, "Question", class: "col-md-2 control-label" %>
+          <div class="col-md-8">   
+            <%= q.text_area :text, required: true, class: "form-control" %>
+          </div>
+        </div>
+          <% 3.times { q.object.send(:choices).build } %>
+          <%= q.nested_fields_for :choices do |c| %>
+            <div class="form-group">
+              <%= c.label :answer, "Answer", class: "col-md-2 control-label" %>
+              <div class="col-md-8">      
+                <%= c.text_field :answer, class: "form-control" %>
+                <%= c.label :is_correct, "Correct answer", class: "correct-label" %>
+                <%= c.check_box :is_correct %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+        <div class="form-group">
+          <div class="col-md-8 col-md-offset-2">
+            <div class="btn btn-success add-question">
+              <%= f.add_nested_fields_link :questions %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div class="form-group">
+      <div class="col-md-8 col-md-offset-2">
+        <%= f.submit "Create Test", class: "btn btn-primary btn-block" %>
+      </div>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.nested_fields_for :questions do |q| %>
-      <p><%= q.label :text, "Question" %>      
-      <%= q.text_field :text %></p>
-      <% 4.times { q.object.send(:choices).build } %>
-      <%= q.nested_fields_for :choices do |c| %>
-        <p class="choices"><%= c.label :answer, "Answer" %>      
-        <%= c.text_field :answer %>
-        <%= c.label :is_correct %>
-        <%= c.check_box :is_correct %></p>
-      <% end %>
-    <% end %>
-    <%= f.add_nested_fields_link :questions %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

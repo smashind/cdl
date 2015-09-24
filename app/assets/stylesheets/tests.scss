@@ -1,3 +1,24 @@
 // Place all the styles related to the Tests controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.nested_test_questions_0_choices:nth-of-type(4) {
+  display: none;
+}
+.correct-label {
+  padding-right: 10px;
+  margin-bottom: -30px;
+}
+.add-question {
+  margin-left: 11px;
+  a {
+    color: #FFF;
+    text-decoration: none !important;
+    &:hover {
+      color: #FFF;
+    }
+  }
+}
+.test-creation-form {
+  margin: 20px 0;
+}
