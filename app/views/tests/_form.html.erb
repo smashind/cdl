@@ -42,9 +42,7 @@
         <% end %>
         <div class="form-group">
           <div class="col-md-8 col-md-offset-2">
-            <div class="btn btn-success add-question">
-              <%= f.add_nested_fields_link :questions %>
-            </div>
+            <%= f.add_nested_fields_link :questions, 'Add Question', class: 'btn btn-success' %>
           </div>
         </div>
       </div>
