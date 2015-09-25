@@ -12,7 +12,15 @@
 //
 //= require jquery
 //= require jquery.turbolinks
+//= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
 //= require nested_form_fields
 //= require_tree .
+
+// Clear score before starting new test
+$(document).on("page:change", function() {
+	$(".clear-score").click(function() {
+	  sessionStorage.clear();
+	});
+});

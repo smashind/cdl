@@ -30,3 +30,20 @@ html {
   min-height: 100%;
   overflow-x: hidden;
 }
+
+body {
+  margin-bottom: 20px;
+  overflow-x: hidden;
+  min-height: 300px;
+  @media (max-width: 767px) and (min-width: 357px) {
+    margin-bottom: 460px;
+  }  
+  @media (max-width: 356px) {
+    margin-bottom: 480px;
+  }
+}
+
+.highlighted {
+  color: #19C4A2;
+	font-weight: 900;
+}

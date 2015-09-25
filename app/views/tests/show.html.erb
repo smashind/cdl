@@ -1,4 +1,12 @@
-<p><strong>Name:</strong> <%= @test.name %><br>
-<%= @test.questions.count %> questions</p>
+<h1><%= @test.name %></h1>
+<% @test.questions.each do |question| %>
+<h3><%= question.text %></h3>
+  <ol>
+	<% question.choices.each do |choice| %>
+		<li <% if choice.is_correct? %>class="highlighted"<% end %> ><%= choice.answer %></li>
+	<% end %>
+	</ol>
+<% end %>
 
-<p><%= link_to "Start the test", test_question_path(@test.id, @test.questions.first.id) %></p>
+
+<p><%#= link_to "Start the test", test_question_path(@test.id, @test.questions.first.id) %></p>
