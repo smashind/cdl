@@ -1,6 +1,6 @@
 class TestsController < ApplicationController
 	before_action :set_test, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, :index, :new, :show
+  before_action :authenticate_user!, only: [:index, :new, :show]
 
   def questions
     @test = Test.find(params[:test_id])
