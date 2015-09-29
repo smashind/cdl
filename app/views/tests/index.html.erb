@@ -1,8 +1,16 @@
 <h1>CDL Practice Tests</h1>
 
-<% @tests.each do |test| %>
-  <p><%= test.name %> - <%= test.questions.size %> Questions - <%= link_to "Start the test", test_question_path(test.id, test.questions.first.id), class: "clear-score" %><br>
-  <%= link_to 'Edit', edit_test_path(test) %> | <%= link_to 'Destroy', test, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+<% @tests.includes(:attempts).each do |test| %>
+  <h3><%= test.name %></h3>
+  <p><% if active_attempts(current_user, test).any? %>
+    <%= link_to "Resume this test", attempt_path(last_attempt(current_user, test).id), class: "btn btn-success" %>
+  <% else %>
+    <%= link_to raw('Start the test <i class="fa fa-angle-double-right"></i>'), test_question_path(test.id, test.questions.first.id), class: "clear-score btn btn-info" %>
+  <% end %></p>
+
+  <div class="well">Admin Stuffs, remove later
+  <%= link_to 'Edit', edit_test_path(test) %> | <%= link_to 'Destroy', test, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
 <% end %>
 
 <br>

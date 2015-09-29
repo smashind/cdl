@@ -1,11 +1,12 @@
 <h2><%= @attempt.test.name %> Test</h2>
 <% if @attempt.place? %>
-	<a href='../tests/<%= @attempt.test.id %>/questions/<%= @attempt.place %>?attempt=<%= @attempt.id %>'>Resume</a>
-	Your current score: <%= @attempt.score %>
-	Your current place: <%= @attempt.place %>
+	<p>You have correctly answered: <%= pluralize(@attempt.score, 'question') %></p>
+	<p>You have incorrectly answered: <%= pluralize(@attempt.incorrect, 'question') %></p>
+	<p>There are <%= pluralize(remaining_questions(@attempt.test.questions.count, @attempt.score, @attempt.incorrect), 'question') %> remaining.</p>
+	<a id="resume-test" class="btn btn-success" href='../tests/<%= @attempt.test.id %>/questions/<%= @attempt.place %>?attempt=<%= @attempt.id %>'>Let's Go <i class="fa fa-angle-double-right"></i></a><br>
 <% elsif @attempt.completed %>
 	<h3>Your score was: <%= @attempt.score %> correct out of <%= @attempt.test.questions.count %> questions</h3>
-	<p><%= link_to "Try this test again", test_question_path(@attempt.test.id, @attempt.test.questions.first.id), class: "clear-score" %></p>
+	<p><%= link_to "Try this test again", test_question_path(@attempt.test.id, @attempt.test.questions.first.id), class: "clear-score btn btn-info" %></p>
 <% else %>
   <p>There was a problem.</p>
 <% end %>
@@ -15,5 +16,7 @@
   $("#resume-test").click(function() {
   	// Set current score
   	sessionStorage.setItem("score", "<%= @attempt.score %>");
+  	// Set current incorrect
+  	sessionStorage.setItem("incorrect", "<%= @attempt.incorrect %>");
   })
 </script>

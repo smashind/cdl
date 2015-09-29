@@ -1,14 +1,18 @@
-<p>
-  <strong>Question:</strong>
-  <%= @question.text %>
-</p>
+<h2><%= @question.text %></h2>
 
-<ol><% @question.choices.each do |choice| %>
-	<input type="radio" name="answer" <% if choice.is_correct %>id="correct" data-value="<%= choice.answer %>"<% end %>><%= choice.answer %><br>
-	<% end %>
-</ol>
+<div class="question-answers">
+	<ol><% @question.choices.each do |choice| %>
+		<label class="choice">  
+		  <li>
+		    <input type="radio" name="answer" <% if choice.is_correct %>id="correct" data-value="<%= choice.answer %>"<% end %>><%= choice.answer %>
+		  </li>
+		</label>
+		<% end %>
+	</ol>
+</div>
 
-<button type="button" id="check-answer">Submit</button>
+<button type="button" id="check-answer" class="btn btn-success pull-right">Submit <i class="fa fa-angle-double-right"></i>
+</button>
 
 <!-- Allow the user to save -->
 <div id="save">
@@ -17,7 +21,8 @@
 	  <%= form_for(@attempt = Attempt.find(params[:attempt]), url: attempt_path(@attempt), html: { method: 'put' }) do |f| %>
 		  <%= f.hidden_field :place, value: @question.id %>
 		  <%= f.hidden_field :score %>
-		  <%= f.submit "Update your save" %>
+		  <%= f.hidden_field :incorrect %>
+		  <%= f.submit "Save and resume later", class: "btn btn-warning pull-right" %>
 	  <% end %>
 	<% else %>
 	<!-- Making a new save (checking first to make sure that this is not the first question) -->
@@ -25,8 +30,10 @@
 		  <%= form_for(@attempt = Attempt.new) do |f| %>
 			  <%= f.hidden_field :test_id, value: @question.test.id %>
 			  <%= f.hidden_field :place, value: @question.id %>
+			  <%= f.hidden_field :user_id, value: current_user.id %>
 		    <%= f.hidden_field :score %>
-			  <%= f.submit "Save and resume later" %>
+		    <%= f.hidden_field :incorrect %>
+			  <%= f.submit "Save and resume later", class: "btn btn-warning pull-right" %>
 		  <% end %>
 		<% end %>
 	<% end %>
@@ -41,17 +48,19 @@
 	  	<%= form_for(@attempt = Attempt.find(params[:attempt]), url: attempt_path(@attempt), html: { method: 'put' }) do |f| %>
 			  <%= f.hidden_field :test_id, value: @question.test.id %>
 			  <%= f.hidden_field :score, id: "finish-score" %>
+			  <%= f.hidden_field :incorrect, id: "finish-incorrect" %>
 			  <%= f.hidden_field :place, value: nil %>
 			  <%= f.hidden_field :completed, value: true %>
-			  <%= f.submit "Finish" %>
+			  <%= f.submit "Finish", class: "btn btn-danger pull-right" %>
 	    <% end %>
 	  <% else %>
 		  <%= form_for(@attempt = Attempt.new) do |f| %>
 			  <%= f.hidden_field :test_id, value: @question.test.id %>
 			  <%= f.hidden_field :score, id: "finish-score" %>
+			  <%= f.hidden_field :incorrect, id: "finish-incorrect" %>
 			  <%= f.hidden_field :place, value: nil %>
 			  <%= f.hidden_field :completed, value: true %>
-			  <%= f.submit "Finish" %>
+			  <%= f.submit "Finish", class: "btn btn-danger pull-right" %>
 	    <% end %>
 	  <% end %>
 	<% else %>
@@ -61,10 +70,10 @@
 	    <% u = URI.parse(url) %>
 	    <% p = CGI.parse(u.query) %>
 	    <% id = p['attempt'].first %>
-	    <a href='/tests/<%= @question.test.id %>/questions/<%= @next_question.id %>?attempt=<%= id %>'>Next question</a>
+	    <a href='/tests/<%= @question.test.id %>/questions/<%= @next_question.id %>?attempt=<%= id %>'>Next question  <i class="fa fa-angle-double-right"></i></a>
 	  <% else %>
 	    <!-- If this is a new attempt, this is the simple next button -->
-	    <%= link_to "Next question", test_question_path(params[:test_id], @next_question.id) %>
+	    <%= link_to raw('Next question  <i class="fa fa-angle-double-right"></i>'), test_question_path(params[:test_id], @next_question.id), class: "btn btn-info pull-right" %>
 	  <% end %>
 	<% end %>
 </div>

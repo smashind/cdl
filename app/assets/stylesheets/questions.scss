@@ -5,3 +5,45 @@
 #test-nav {
 	display: none;
 }
+ 
+#save {
+	.btn {
+	  margin-right: 10px;
+	}
+}
+
+.question-answers {
+	ol {
+	  list-style-type: none;
+	  padding-left: 0;
+	  input[type="radio"] {
+	    margin-right: 10px;
+	  }
+	  .choice {
+	    cursor: pointer;
+	    display: block;
+	    font-weight: normal;
+	  }
+	  li {
+	    padding: 10px;
+	    &:hover {
+	      background: #ECF0F1;
+	    }
+	  }
+	  .selected {
+	    background: #DEDFE0;
+	  }
+	  .correct {
+	    background: #69D3BF;
+	    &:hover {
+	      background: #69D3BF;
+	    }
+	  }
+	  .incorrect {
+	    background: #EF8B80;
+	    &:hover {
+	      background: #EF8B80;
+	    }
+	  }
+	}
+}
