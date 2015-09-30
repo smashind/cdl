@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'order', to: 'pages#order', via: :get
 
   post 'payment_notifications', controller: 'payment_notifications', action: 'create'
-  get "success", to: 'pages#success', via: :post
+  post "success", to: 'pages#success'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
