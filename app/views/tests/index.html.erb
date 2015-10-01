@@ -1,5 +1,15 @@
 <h1>CDL Practice Tests</h1>
 
+<% if current_user.package == "ult932" %>
+  <%= render partial: "ultimate" %>
+<% elsif current_user.package == "x16ty" %>
+  <%= render partial: "premium" %>
+<% elsif user.package == "regsies" %>
+  <%= render partial: "basic" %>
+<% else %>
+  <p>There was a problem. Please contact support.</p>
+<% end %>
+
 <% @tests.includes(:attempts).each do |test| %>
   <h3><%= test.name %></h3>
   <p><% if active_attempts(current_user, test).any? %>

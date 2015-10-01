@@ -6,4 +6,13 @@ class PagesController < ApplicationController
 
   def order
   end
+
+  def success
+  end
+
+  def success_premium
+  end
+
+  def success_ultimate
+  end
 end
