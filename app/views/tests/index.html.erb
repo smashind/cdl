@@ -4,7 +4,7 @@
   <%= render partial: "ultimate" %>
 <% elsif current_user.package == "x16ty" %>
   <%= render partial: "premium" %>
-<% elsif user.package == "regsies" %>
+<% elsif current_user.package == "regsies" %>
   <%= render partial: "basic" %>
 <% else %>
   <p>There was a problem. Please contact support.</p>

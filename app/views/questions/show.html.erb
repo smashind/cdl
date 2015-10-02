@@ -70,7 +70,7 @@
 	    <% u = URI.parse(url) %>
 	    <% p = CGI.parse(u.query) %>
 	    <% id = p['attempt'].first %>
-	    <a href='/tests/<%= @question.test.id %>/questions/<%= @next_question.id %>?attempt=<%= id %>'>Next question  <i class="fa fa-angle-double-right"></i></a>
+	    <a class= "btn btn-info pull-right" href='/tests/<%= @question.test.id %>/questions/<%= @next_question.id %>?attempt=<%= id %>'>Next question  <i class="fa fa-angle-double-right"></i></a>
 	  <% else %>
 	    <!-- If this is a new attempt, this is the simple next button -->
 	    <%= link_to raw('Next question  <i class="fa fa-angle-double-right"></i>'), test_question_path(params[:test_id], @next_question.id), class: "btn btn-info pull-right" %>

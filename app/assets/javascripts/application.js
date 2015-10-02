@@ -16,6 +16,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require nested_form_fields
+//= require sweet-alert
 //= require_tree .
 
 // Clear score before starting new test

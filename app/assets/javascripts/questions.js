@@ -14,7 +14,7 @@ $(document).on("page:change", function() {
 		// correct answer
 		if($('#correct').is(':checked')) { 
 			$('input:checked').parent('li').addClass("correct");
-			alert("Correct!");
+			sweetAlert("That's correct!", "", "success");
 			if (sessionStorage.getItem("score") === null) { 
 				sessionStorage.setItem("score", 1);
 				setCorrect();
@@ -27,7 +27,7 @@ $(document).on("page:change", function() {
 		} else {
 			$('input:checked').parent('li').addClass("incorrect");
 			$("input[id=correct]").parent('li').addClass("correct");
-			alert("Incorrect. The correct answer was " + '"' + $("input[id=correct]").attr("data-value") + '"');
+			sweetAlert("Incorrect.", "The correct answer was " + '"' + $("input[id=correct]").attr("data-value") + '"', "error");
 			if (sessionStorage.getItem("incorrect") === null) { 
 				sessionStorage.setItem("incorrect", 1);
 				setIncorrect();
