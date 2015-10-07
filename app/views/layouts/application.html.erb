@@ -22,7 +22,8 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-	      <a href="/" class="navbar-brand">CDL HQ</a>
+	      <a href="/" class="navbar-brand"><i class="fa fa-book"></i> CDL Study Guides</a>
+	      <a href="/" class="navbar-brand"><i class="fa fa-pencil"></i> CDL Practice Tests</a>
 	    </div>
 	    <div class="navbar-collapse collapse" id="navbar">   
 	      
@@ -40,7 +41,7 @@
 	        	</li>
 	        	
 	        <% else %>
-	            <%= link_to "Get it Now", order_path, class: "btn btn-danger navbar-btn" %>
+	            <%= link_to "Pass Your Tests Now", order_path, class: "btn btn-danger navbar-btn order" %>
 	          <!--
 		        <li><%#= link_to "Create Account", new_user_registration_path %></li>
 		        <li><%#= link_to "Log In", new_user_session_path %></li>
@@ -57,5 +58,15 @@
     <p><%= alert %></p>
     <%= yield %>
   </div>
+	<footer>
+	  <%= image_tag('guarantee-paypal.png') %>
+	  <ul>
+	    <li><%= link_to "About CDLStudyGuideHQ.com", "#" %>
+	    <li><%= link_to "Help & Support", "#" %>
+	    <li><%= link_to "Guarantee", "#" %>
+	    <li><%= link_to "Terms & Conditions", "#" %>
+	    <li><%= link_to "Blog", "#" %>
+	  </ul>
+	</footer>
 </body>
 </html>
