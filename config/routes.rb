@@ -7,7 +7,16 @@ Rails.application.routes.draw do
   end
   devise_for :users
   root 'pages#index'
-  get 'order', to: 'pages#order', via: :get
+  get 'order', to: 'pages#order'
+
+  # Marketing pages
+  get 'class-a-endorsement', to: 'pages#class_a_endorsement', as: :class_a_endorsement
+  get 'class-b-endorsement', to: 'pages#class_b_endorsement', as: :class_b_endorsement
+  get 'hazardous-materials-endorsement', to: 'pages#hazardous_materials_endorsement', as: :hazardous_materials_endorsement
+  get 'double-triple-endorsement', to: 'pages#double_triple_endorsement', as: :double_triple_endorsement
+  get 'tank-vehicle-endorsement', to: 'pages#tank_vehicle_endorsement', as: :tank_vehicle_endorsement
+  get 'passenger-vehicle-endorsement', to: 'pages#passenger_vehicle_endorsement', as: :passenger_vehicle_endorsement
+  get 'school-bus-endorsement', to: 'pages#school_bus_endorsement', as: :school_bus_endorsement
 
   post 'payment_notifications', controller: 'payment_notifications', action: 'create'
   post "success", to: 'pages#success'
