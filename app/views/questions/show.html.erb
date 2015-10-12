@@ -17,25 +17,31 @@
 <!-- Allow the user to save -->
 <div id="save">
   <!-- Saving and quitting over a previous save -->
-	<% if params[:attempt] %>
-	  <%= form_for(@attempt = Attempt.find(params[:attempt]), url: attempt_path(@attempt), html: { method: 'put' }) do |f| %>
-		  <%= f.hidden_field :place, value: @question.id %>
-		  <%= f.hidden_field :score %>
-		  <%= f.hidden_field :incorrect %>
-		  <%= f.submit "Save and resume later", class: "btn btn-warning pull-right" %>
-	  <% end %>
-	<% else %>
-	<!-- Making a new save (checking first to make sure that this is not the first question) -->
-		<% unless @previous_question == nil %>
-		  <%= form_for(@attempt = Attempt.new) do |f| %>
-			  <%= f.hidden_field :test_id, value: @question.test.id %>
+  <% if params[:attempt] && params[:attempt].size < 10 %>
+		<% if !Attempt.where(id: params[:attempt]).blank? %>
+		  <%= form_for(@attempt = Attempt.find(params[:attempt]), url: attempt_path(@attempt), html: { method: 'put' }) do |f| %>
 			  <%= f.hidden_field :place, value: @question.id %>
-			  <%= f.hidden_field :user_id, value: current_user.id %>
-		    <%= f.hidden_field :score %>
-		    <%= f.hidden_field :incorrect %>
+			  <%= f.hidden_field :score %>
+			  <%= f.hidden_field :incorrect %>
 			  <%= f.submit "Save and resume later", class: "btn btn-warning pull-right" %>
 		  <% end %>
+		<% else %>
+		<!-- Making a new save (checking first to make sure that this is not the first question) -->
+			<% unless @previous_question == nil %>
+			  <%= form_for(@attempt = Attempt.new) do |f| %>
+				  <%= f.hidden_field :test_id, value: @question.test.id %>
+				  <%= f.hidden_field :place, value: @question.id %>
+				  <%= f.hidden_field :user_id, value: current_user.id %>
+			    <%= f.hidden_field :score %>
+			    <%= f.hidden_field :incorrect %>
+				  <%= f.submit "Save and resume later", class: "btn btn-warning pull-right" %>
+			  <% end %>
+			<% end %>
 		<% end %>
+	<% else %>
+    <script type="text/javascript">
+      window.location.href="<%= tests_path %>"
+    </script>
 	<% end %>
 </div>
 
@@ -44,36 +50,100 @@
   <!-- If there is no next question, the finish buttons are shown -->
 	<% if @next_question.nil? %>
 	  <!-- Check if this is updating a previous attempt, or creating and finishing a new one -->
-	  <% if params[:attempt] %>
-	  	<%= form_for(@attempt = Attempt.find(params[:attempt]), url: attempt_path(@attempt), html: { method: 'put' }) do |f| %>
-			  <%= f.hidden_field :test_id, value: @question.test.id %>
-			  <%= f.hidden_field :score, id: "finish-score" %>
-			  <%= f.hidden_field :incorrect, id: "finish-incorrect" %>
-			  <%= f.hidden_field :place, value: nil %>
-			  <%= f.hidden_field :completed, value: true %>
-			  <%= f.submit "Finish", class: "btn btn-danger pull-right" %>
-	    <% end %>
-	  <% else %>
-		  <%= form_for(@attempt = Attempt.new) do |f| %>
-			  <%= f.hidden_field :test_id, value: @question.test.id %>
-			  <%= f.hidden_field :score, id: "finish-score" %>
-			  <%= f.hidden_field :incorrect, id: "finish-incorrect" %>
-			  <%= f.hidden_field :place, value: nil %>
-			  <%= f.hidden_field :completed, value: true %>
-			  <%= f.submit "Finish", class: "btn btn-danger pull-right" %>
-	    <% end %>
+	  <% if params[:attempt] && params[:attempt].size < 10 %>
+		  <% if !Attempt.where(id: params[:attempt]).blank? %>
+		  	<%= form_for(@attempt = Attempt.find(params[:attempt]), url: attempt_path(@attempt), html: { method: 'put' }) do |f| %>
+				  <%= f.hidden_field :test_id, value: @question.test.id %>
+				  <%= f.hidden_field :score, id: "finish-score" %>
+				  <%= f.hidden_field :incorrect, id: "finish-incorrect" %>
+				  <%= f.hidden_field :place, value: nil %>
+				  <%= f.hidden_field :completed, value: true %>
+				  <%= f.submit "Finish", class: "btn btn-danger pull-right" %>
+		    <% end %>
+		  <% else %>
+			  <%= form_for(@attempt = Attempt.new) do |f| %>
+				  <%= f.hidden_field :test_id, value: @question.test.id %>
+				  <%= f.hidden_field :score, id: "finish-score" %>
+				  <%= f.hidden_field :incorrect, id: "finish-incorrect" %>
+				  <%= f.hidden_field :place, value: nil %>
+				  <%= f.hidden_field :completed, value: true %>
+				  <%= f.submit "Finish", class: "btn btn-danger pull-right" %>
+		    <% end %>
+		  <% end %>
+		<% else %>
+	    <script type="text/javascript">
+	      window.location.href="<%= tests_path %>"
+	    </script>
 	  <% end %>
 	<% else %>
 	  <!-- If there is another question and this is a continuation, this is the "Next" button -->
-	  <% if params[:attempt] %>
-	    <% url = request.original_url %>
-	    <% u = URI.parse(url) %>
-	    <% p = CGI.parse(u.query) %>
-	    <% id = p['attempt'].first %>
-	    <a class= "btn btn-info pull-right" href='/tests/<%= @question.test.id %>/questions/<%= @next_question.id %>?attempt=<%= id %>'>Next question  <i class="fa fa-angle-double-right"></i></a>
-	  <% else %>
-	    <!-- If this is a new attempt, this is the simple next button -->
-	    <%= link_to raw('Next question  <i class="fa fa-angle-double-right"></i>'), test_question_path(params[:test_id], @next_question.id), class: "btn btn-info pull-right" %>
+	  <% if params[:attempt] && params[:attempt].size < 10 %>
+		  <% if !Attempt.where(id: params[:attempt]).blank? %>
+		    <% url = request.original_url %>
+		    <% u = URI.parse(url) %>
+		    <% p = CGI.parse(u.query) %>
+		    <% id = p['attempt'].first %>
+		    <a class= "btn btn-info pull-right next-button" href='/tests/<%= @question.test.id %>/questions/<%= @next_question.id %>?attempt=<%= id %>'>Next question  <i class="fa fa-angle-double-right"></i></a>
+		  <% else %>
+		    <!-- If this is a new attempt, this is the simple next button -->
+		    <%= link_to raw('Next question  <i class="fa fa-angle-double-right"></i>'), test_question_path(params[:test_id], @next_question.id), class: "btn btn-info pull-right next-button" %>
+		  <% end %>
+		<% else %>
+	    <script type="text/javascript">
+	      window.location.href="<%= tests_path %>"
+	    </script>
 	  <% end %>
 	<% end %>
 </div>
+
+<script>
+  
+  function setPathFalse() {
+  	sessionStorage.setItem("path", false);
+  }
+
+  function setURLToNull() {
+  	sessionStorage.setItem("current-url", null);
+  }
+
+  // User refreshes page
+  if (sessionStorage.getItem("current-url") === window.location.href) {
+  // User navigates properly
+  } else if (sessionStorage.getItem("path") === "true") {
+  	setPathFalse();
+    setURLToNull();
+  // User is trying to enter URL and needs to be redirected back
+  } else {
+  	alert("Oops! Use buttons to navigate.");
+  	//sweetAlert("Oops!", "Use buttons to navigate.");
+  	window.location = '<%= tests_path %>';
+  	//$(location).attr('href', '<%= tests_path %>');
+  	// window.history.go(-1);
+  	// window.stop();
+  	// sessionStorage.setItem("current-url", window.history.go(-1));
+  }
+
+  $('.next-button').click(function() {
+  	sessionStorage.setItem("submitted", false);
+  	sessionStorage.setItem("answered", false);
+  	sessionStorage.setItem("path", true);
+  });
+
+  $(window).bind('beforeunload', function(){
+  	sessionStorage.setItem("current-url", window.location.href);
+  	if (sessionStorage.getItem("submitted") === "true") {
+      sessionStorage.setItem("answered", true);
+      return;
+    }
+  });
+
+  // Back Button
+  location.hash = " ";
+  $(window).on('hashchange', function() {
+    location.hash = " ";
+    // sessionStorage.setItem("path", true);
+  });
+
+  setPathFalse();
+  setURLToNull();
+</script>

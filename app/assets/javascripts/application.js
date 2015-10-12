@@ -23,5 +23,6 @@
 $(document).on("page:change", function() {
 	$(".clear-score").click(function() {
 	  sessionStorage.clear();
+	  sessionStorage.setItem("path", true);
 	});
 });

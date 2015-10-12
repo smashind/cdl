@@ -8,34 +8,46 @@ function setIncorrect() {
 	$('#finish-incorrect').val(parseInt(sessionStorage.getItem("incorrect")));
 }
 
+function submitPressed() {
+	sessionStorage.setItem("submitted", true);
+}
+
+function setNotAnswered() {
+	sessionStorage.setItem("answered", false);
+}
+
 $(document).on("page:change", function() {
 	// Scoring mechanism after clicking submit
 	$('#check-answer').click(function() {
 		// correct answer
-		if($('#correct').is(':checked')) { 
-			$('input:checked').parent('li').addClass("correct");
-			sweetAlert("That's correct!", "", "success");
-			if (sessionStorage.getItem("score") === null) { 
-				sessionStorage.setItem("score", 1);
-				setCorrect();
-			} else {
-				sessionStorage.setItem("score", parseInt(sessionStorage.getItem("score")) + 1);
-				setCorrect();
-			}
-			setCorrect();
-			// incorrect answer
+		if ((sessionStorage.getItem("answered") === "true") || (sessionStorage.getItem("submitted") === "true")) {
+			sweetAlert("You already answered this one!", "Please press the 'Next' button.");
 		} else {
-			$('input:checked').parent('li').addClass("incorrect");
-			$("input[id=correct]").parent('li').addClass("correct");
-			sweetAlert("Incorrect.", "The correct answer was " + '"' + $("input[id=correct]").attr("data-value") + '"', "error");
-			if (sessionStorage.getItem("incorrect") === null) { 
-				sessionStorage.setItem("incorrect", 1);
-				setIncorrect();
+			if($('#correct').is(':checked')) { 
+				$('input:checked').parent('li').addClass("correct");
+				sweetAlert("That's correct!", "", "success");
+				if (sessionStorage.getItem("score") === null) { 
+					sessionStorage.setItem("score", 1);
+					setCorrect();
+				} else {
+					sessionStorage.setItem("score", parseInt(sessionStorage.getItem("score")) + 1);
+					setCorrect();
+				}
+				setCorrect();
+				// incorrect answer
 			} else {
-				sessionStorage.setItem("incorrect", parseInt(sessionStorage.getItem("incorrect")) + 1);
+				$('input:checked').parent('li').addClass("incorrect");
+				$("input[id=correct]").parent('li').addClass("correct");
+				sweetAlert("Incorrect.", "The correct answer was " + '"' + $("input[id=correct]").attr("data-value") + '"', "error");
+				if (sessionStorage.getItem("incorrect") === null) { 
+					sessionStorage.setItem("incorrect", 1);
+					setIncorrect();
+				} else {
+					sessionStorage.setItem("incorrect", parseInt(sessionStorage.getItem("incorrect")) + 1);
+					setIncorrect();
+				}
 				setIncorrect();
 			}
-			setIncorrect();
 		}
 		// Navigation
 		$("#save").fadeOut("fast");
@@ -44,6 +56,7 @@ $(document).on("page:change", function() {
 		});
 		setCorrect();
 		setIncorrect();
+		submitPressed();
 	});
   
   // Set user score

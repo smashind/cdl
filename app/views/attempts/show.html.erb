@@ -3,9 +3,13 @@
 	<p>You have correctly answered: <%= pluralize(@attempt.score, 'question') %></p>
 	<p>You have incorrectly answered: <%= pluralize(@attempt.incorrect, 'question') %></p>
 	<p>There are <%= pluralize(remaining_questions(@attempt.test.questions.count, @attempt.score, @attempt.incorrect), 'question') %> remaining.</p>
-	<a id="resume-test" class="btn btn-success" href='../tests/<%= @attempt.test.id %>/questions/<%= @attempt.place %>?attempt=<%= @attempt.id %>'>Let's Go <i class="fa fa-angle-double-right"></i></a><br>
+	<%= link_to raw('Let\'s Go <i class="fa fa-angle-double-right"></i>'), test_question_path(@attempt.test.id, @attempt.place, attempt: @attempt.id), id: "resume-test", class: "btn btn-success" %><br>
 <% elsif @attempt.completed %>
-	<h3>Your score was: <%= @attempt.score %> correct out of <%= @attempt.test.questions.count %> questions</h3>
+  <% if @attempt.score + @attempt.incorrect != @attempt.test.questions.count %>
+    <h3>There was a problem calculating your score. Please try the test again.</h3>
+  <% else %>
+		<h3>Your score was: <%= @attempt.score %> correct out of <%= @attempt.test.questions.count %> questions</h3>
+	<% end %>
 	<p><%= link_to "Try this test again", test_question_path(@attempt.test.id, @attempt.test.questions.first.id), class: "clear-score btn btn-info" %></p>
 <% else %>
   <p>There was a problem.</p>
@@ -18,5 +22,10 @@
   	sessionStorage.setItem("score", "<%= @attempt.score %>");
   	// Set current incorrect
   	sessionStorage.setItem("incorrect", "<%= @attempt.incorrect %>");
+  	// Ensure reloding controls are correctly set
+  	sessionStorage.setItem("answered", false);
+  	sessionStorage.setItem("submitted", false);
+  	// Ensure the user is on the right path
+  	sessionStorage.setItem("path", true);
   })
 </script>
