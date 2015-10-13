@@ -1,5 +1,7 @@
 <h1>CDL Practice Tests</h1>
 
+<%= current_user.package %>
+
 <% if current_user.package == "ult932" %>
   <%= render partial: "ultimate" %>
 <% elsif current_user.package == "x16ty" %>
