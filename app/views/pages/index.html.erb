@@ -1,8 +1,14 @@
+<% content_for :head do %>
+  <title>CDL Study Guides and Practice Tests</title>
+  <meta name="description" content="Looking for CDL study guides and practice tests? CDLStudyGuideHQ.com has them for all endorsements - and we guarantee your success!">
+  <link href='https://fonts.googleapis.com/css?family=Yellowtail' rel='stylesheet' type='text/css'>
+<% end %>
+
 <div class="row text-center">
   <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2 col-xxs-12">
     <%= image_tag("cdl_logo.png", class: "main-image") %>
     <h1 class="home">CDL Study Guide HQ</h1>
-    <p class="home-tagline">The Number #1 CDL Website</p>
+    <p class="home-tagline">The #1 CDL Study Website</p>
   </div>
 </div>
 
@@ -14,6 +20,93 @@
       All Endorsements
     </p>
   </div>
+</div>
+
+<div class="row text-center">
+	<div class="col-sm-5 col-sm-offset-1">
+	  <div class="state-picker">
+	    <h3>Master Your CDL Exam</h3>
+	    <h4>Pass with our test or it's 100% Free</h4>
+	    <div class="state-picker-box">
+	      <p>Pick Your State and Pass the Exam</p>
+	      <select id="your-state">
+	        <option value="none">Choose Your State</option>
+					<option value="AL">Alabama</option>
+					<option value="AK">Alaska</option>
+					<option value="AZ">Arizona</option>
+					<option value="AR">Arkansas</option>
+					<option value="CA">California</option>
+					<option value="CO">Colorado</option>
+					<option value="CT">Connecticut</option>
+					<option value="DC">DC</option>
+					<option value="DE">Delaware</option>
+					<option value="FL">Florida</option>
+					<option value="GA">Georgia</option>
+					<option value="HI">Hawaii</option>
+					<option value="ID">Idaho</option>
+					<option value="IL">Illinois</option>
+					<option value="IN">Indiana</option>
+					<option value="IA">Iowa</option>
+					<option value="KS">Kansas</option>
+					<option value="KY">Kentucky</option>
+					<option value="LA">Louisiana</option>
+					<option value="ME">Maine</option>
+					<option value="MD">Maryland</option>
+					<option value="MA">Massachusetts</option>
+					<option value="MI">Michigan</option>
+					<option value="MN">Minnesota</option>
+					<option value="MS">Mississippi</option>
+					<option value="MO">Missouri</option>
+					<option value="MT">Montana</option>
+					<option value="NE">Nebraska</option>
+					<option value="NV">Nevada</option>
+					<option value="NH">New Hampshire</option>
+					<option value="NJ">New Jersey</option>
+					<option value="NM">New Mexico</option>
+					<option value="NY">New York</option>
+					<option value="NC">North Carolina</option>
+					<option value="ND">North Dakota</option>
+					<option value="OH">Ohio</option>
+					<option value="OK">Oklahoma</option>
+					<option value="OR">Oregon</option>
+					<option value="PA">Pennsylvania</option>
+					<option value="RI">Rhode Island</option>
+					<option value="SC">South Carolina</option>
+					<option value="SD">South Dakota</option>
+					<option value="TN">Tennessee</option>
+					<option value="TX">Texas</option>
+					<option value="UT">Utah</option>
+					<option value="VT">Vermont</option>
+					<option value="VA">Virginia</option>
+					<option value="WA">Washington</option>
+					<option value="WV">West Virginia</option>
+					<option value="WI">Wisconsin</option>
+					<option value="WY">Wyoming</option>
+				</select>	
+	    </div>
+	    <%= link_to 'Get Your Materials Now', '#', class: 'btn btn-default', id: "state-picker-button" %>
+
+	    <div class="home-main-top">
+		    <p>Welcome to CDL Study Guide Headquarters! From Alaska to Maine, we specialize in the CDL exam. Whether you're looking for practice tests or study guides for the written, pre-trip, or driving portions, we have them all and cover all the endorsements. Get your materials today.</p>
+
+		    <p>Our study guides and practice tests are avaialable at a fraction fo the cost of other options, and we are so confident they'll help you pass that we guarantee it. If you don't pass after using our materials, just let us know and we'll refund 100% of your purchase price. We want you to pass and get your dream career in commercial driving.</p>
+		  </div>
+	  </div>
+	</div>
+	<div class="col-sm-5">
+	  <%= image_tag("cdl_study_guide.png") %>
+	  <div class="study-guide-info">
+	    <h3>The Ultimate Study Guide</h3>
+	    <ul>
+	      <li>All 13 Sections Covered
+	      <li>All 7 Endorsements Covered
+	      <li>Includes All States
+	      <li>Class A Approved
+	    </ul>
+
+	    <%= link_to "Learn More", "#", class: "btn btn-default" %>
+	  </div>
+	</div>
 </div>
 
 <div class="row text-center">
@@ -36,32 +129,37 @@
 		    <h4>Class A + All Endorsements</h4>
 		    <p>(Study Guide + 150 Practice Questions)</p>
 	    </div>
-	    <div class="col-xs-2 col-xxs-12"><a href="#">$47</a></div>
+	    <div class="col-xs-2 col-xxs-12"><%= link_to "$47", :class_a_endorsement %></div>
 	    <div class="col-xs-10 col-xxs-12">
 		    <h4>Class B + All Endorsements</h4>
 		    <p>(Study Guide + 100 Practice Questions)</p>
 	    </div>
-	    <div class="col-xs-2 col-xxs-12"><a href="#">$47</a></div>
+	    <div class="col-xs-2 col-xxs-12"><%= link_to "$47", :class_b_endorsement %></div>
+	    <div class="col-xs-10 col-xxs-12">
+		    <h4>Double/Triple</h4>
+		    <p>(Study Guide + 50 Practice Questions)</p>
+	    </div>
+	    <div class="col-xs-2 col-xxs-12"><%= link_to "$17", :double_triple_endorsement %></div>
 	    <div class="col-xs-10 col-xxs-12">
 		    <h4>Haz Mat (H)</h4>
 		    <p>(Study Guide + 50 Practice Questions)</p>
 	    </div>
-	    <div class="col-xs-2 col-xxs-12"><a href="#">$17</a></div>
+	    <div class="col-xs-2 col-xxs-12"><%= link_to "$17", :hazardous_materials_endorsement %></div>
 	    <div class="col-xs-10 col-xxs-12">
 		    <h4>Tanker (N)</h4>
 		    <p>(Study Guide + 50 Practice Questions)</p>
 	    </div>
-	    <div class="col-xs-2 col-xxs-12"><a href="#">$17</a></div>
+	    <div class="col-xs-2 col-xxs-12"><%= link_to "$17", :tank_vehicle_endorsement %></div>
 	    <div class="col-xs-10 col-xxs-12">
 		    <h4>Passenger (P)</h4>
 		    <p>(Study Guide + 50 Practice Questions)</p>
 	    </div>
-	    <div class="col-xs-2 col-xxs-12"><a href="#">$17</a></div>
+	    <div class="col-xs-2 col-xxs-12"><%= link_to "$17", :passenger_vehicle_endorsement %></div>
 	    <div class="col-xs-10 col-xxs-12">
 		    <h4>School Bus (S)</h4>
 		    <p>(Study Guide + 50 Practice Questions)</p>
 	    </div>
-	    <div class="col-xs-2 col-xxs-12"><a href="#">$17</a></div>
+	    <div class="col-xs-2 col-xxs-12"><%= link_to "$17", :school_bus_endorsement %></div>
 	  </div>
   </div>
 
@@ -74,3 +172,15 @@
     </div>
   </div>
 </div>
+
+<script>
+  $('#state-picker-button').click(function(e) {
+  	e.preventDefault();
+  	if ($('#your-state').val() === "none") {
+  		sweetAlert("Please choose your state first.");
+  	} else {
+  		var state = $('#your-state :selected').text().toLowerCase();
+  		window.location = '<%= root_url %>#' + state + '-cdl-study-guide';
+  	}
+  })
+</script>

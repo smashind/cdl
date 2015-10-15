@@ -53,6 +53,124 @@ p.home-bullets {
 	}
 }
 
+.state-picker {
+  h3 {
+    color: #5F7989;
+    font-family: 'Yellowtail', cursive;
+    font-size: 28px;
+  }
+  h4 {
+    color: #3A99D3;
+    font-size: 13px;
+    font-weight: 900;
+    margin-top: -10px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  .state-picker-box {
+    background: #AA3333;
+    margin: 0 auto;
+    padding-bottom: 30px;
+    width: 400px;
+    @media (max-width: 991px) {
+      width: 100%;
+    }
+    p {
+      color: #FFF;
+      font-family: 'Yellowtail', cursive;
+      font-size: 24px;
+      margin: 0 auto;
+      padding: 20px 0;
+    }
+    select {
+      -webkit-appearance: button;
+      -moz-appearance: button;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -webkit-padding-end: 20px;
+      -moz-padding-end: 20px;
+      -webkit-padding-start: 2px;
+      -moz-padding-start: 2px;
+      /* background-color: #F07575;  fallback color if gradients are not supported */
+      background-image: image-url("styling/down.png"), -webkit-linear-gradient(top, #E5E5E5, #F4F4F4); /* For Chrome and Safari */
+      background-image: image-url("styling/down.png"), -moz-linear-gradient(top, #E5E5E5, #F4F4F4); /* For old Fx (3.6 to 15) */
+      background-image: image-url("styling/down.png"), -ms-linear-gradient(top, #E5E5E5, #F4F4F4); /* For pre-releases of IE 10*/
+      background-image: image-url("styling/down.png"), -o-linear-gradient(top, #E5E5E5, #F4F4F4); /* For old Opera (11.1 to 12.0) */ 
+      background-image: image-url("styling/down.png"), linear-gradient(to bottom, #E5E5E5, #F4F4F4); /* Standard syntax; must be last */
+      background-position: center right;
+      background-repeat: no-repeat;
+      border: 1px solid #AAA;
+      border-radius: 2px;
+      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+      color: #000;
+      font-weight: 900;
+      font-size: inherit;
+      margin: 0;
+      overflow: hidden;
+      padding-top: 2px;
+      padding-bottom: 2px;
+      padding-left: 20px;
+      text-overflow: ellipsis;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+  }
+  .btn.btn-default {
+    background-color: #3A99D3;
+    border: 2px solid #000;
+    font-weight: 900;
+    margin-top: 20px;
+    text-transform: uppercase;
+  }
+}
+.home-main-top {
+  margin-top: 100px;
+  text-align: left;
+  @media (max-width: 767px) {
+    margin-top: 30px;
+  }
+}
+.study-guide-info {
+  border-left: 3px solid #3A99D3;
+  padding-bottom: 20px;
+  @media (max-width: 767px) {
+    border-left: none;
+  }
+  h3 {
+    color: #000;
+    font-family: 'Yellowtail', cursive;
+    font-size: 24px;
+    margin: 0 auto;
+    padding: 20px 0;
+  }
+  ul {
+    list-style-type: none;
+    margin-left: 20%;
+    text-align: left;
+    @media (max-width: 991px) {
+      margin: 0 auto;
+      width: 300px;
+    }
+    li {
+      color: #000;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    li:before {
+      font-family: 'FontAwesome';
+      content: '\f00c';
+      margin:0 5px 0 -15px;
+    }
+  }
+  .btn.btn-default {
+    background-color: #3A99D3;
+    border: 2px solid #000;
+    font-weight: 900;
+    margin-top: 20px;
+    text-transform: uppercase;
+    width: 250px;
+  }
+}
 .guarantee {
 	background: #3a99d3;
 	margin: 20px auto 0 auto;
