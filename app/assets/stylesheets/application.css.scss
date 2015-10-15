@@ -41,6 +41,13 @@ body {
   }  
 }
 
+body.account-body {
+  margin-bottom: 70px;
+  @media (max-width: 606px) {
+    margin-bottom: 100px;
+  }
+}
+
 a.navbar-brand {
   &:hover, active {
     color: #FFF !important;
@@ -99,6 +106,16 @@ footer {
   @media (max-width: 767px) and (min-width: 357px) {
     height: 225px;    
   } 
+}
+
+footer.account-footer {
+  height: 70px;
+  ul {
+    padding: 25px 10px 0 10px;
+  }
+  @media (max-width: 606px) {
+    height: 100px;
+  }
 }
 
 .navbar-default {

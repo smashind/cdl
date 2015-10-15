@@ -14,7 +14,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale = 1.0" />
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body <% if user_signed_in? %>class="account-body"<% end %>>
   <div class="navbar navbar-default navbar-static-top">
 	  <div class="container">
 	    <div class="navbar-header">
@@ -60,15 +60,27 @@
     <p><%= alert %></p>
     <%= yield %>
   </div>
-	<footer>
-	  <%= image_tag('guarantee-paypal.png') %>
-	  <ul>
-	    <li><%= link_to "About CDLStudyGuideHQ.com", "#" %>
-	    <li><%= link_to "Help & Support", "#" %>
-	    <li><%= link_to "Guarantee", "#" %>
-	    <li><%= link_to "Terms & Conditions", "#" %>
-	    <li><%= link_to "Blog", "#" %>
-	  </ul>
-	</footer>
+  <% if user_signed_in? %>
+		<footer class="account-footer">
+		  <ul>
+		    <li><%= link_to "About CDLStudyGuideHQ.com", "#" %>
+		    <li><%= link_to "Help & Support", "#" %>
+		    <li><%= link_to "Guarantee", "#" %>
+		    <li><%= link_to "Terms & Conditions", "#" %>
+		    <li><%= link_to "Blog", "#" %>
+		  </ul>
+		</footer>
+	<% else %>
+	  <footer>
+		  <%= image_tag('guarantee-paypal.png') %>
+		  <ul>
+		    <li><%= link_to "About CDLStudyGuideHQ.com", "#" %>
+		    <li><%= link_to "Help & Support", "#" %>
+		    <li><%= link_to "Guarantee", "#" %>
+		    <li><%= link_to "Terms & Conditions", "#" %>
+		    <li><%= link_to "Blog", "#" %>
+		  </ul>
+		</footer>
+	<% end %>
 </body>
 </html>
