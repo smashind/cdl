@@ -19,9 +19,7 @@ Rails.application.routes.draw do
   get 'school-bus-endorsement', to: 'pages#school_bus_endorsement', as: :school_bus_endorsement
 
   post 'payment_notifications', controller: 'payment_notifications', action: 'create'
-  post "success", to: 'pages#success'
-  post "success_premium", to: 'pages#success_premium'
-  post "success_ultimate", to: 'pages#success_ultimate'
+  post "success_itca", to: 'pages#success_itca'
 
   # get "success", to: 'pages#success'
   # get "success_premium", to: 'pages#success_premium'
