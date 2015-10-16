@@ -1,3 +1,9 @@
+<% if request.env["HTTP_REFERER"] %>
+  <%= request.env["HTTP_REFERER"] %>
+<% else %>
+Nothing.
+<% end %>
+
 <% if request.env["HTTP_REFERER"] && URI.parse(request.env["HTTP_REFERER"]).host == "paypal.com" %>
 	<%= render partial: "thanks" %>
 
