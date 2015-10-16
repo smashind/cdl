@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   post 'payment_notifications', controller: 'payment_notifications', action: 'create'
   post "success_itca", to: 'pages#success_itca'
-  get "success_itca", to: 'pages#success_itca'
+  # get "success_itca", to: 'pages#success_itca'
 
   # get "success", to: 'pages#success'
   # get "success_premium", to: 'pages#success_premium'
