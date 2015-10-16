@@ -6,7 +6,7 @@ Nothing.
 <% end %>
 </p>
 
-<% if request.env["HTTP_REFERER"] && URI.parse(request.env["HTTP_REFERER"]).host == "sandbox.paypal.com" %>
+<% if request.env["HTTP_REFERER"] && URI.parse(request.env["HTTP_REFERER"]).host == "www.sandbox.paypal.com" %>
 	<%= render partial: "thanks" %>
 
 	<div class="col-md-8 col-md-offset-1">
