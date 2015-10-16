@@ -1,16 +1,12 @@
-<p>
-<% if request.env["HTTP_REFERER"] %>
-  <%= URI.parse(request.env["HTTP_REFERER"]).host %>
-<% else %>
-Nothing.
-<% end %>
-</p>
-
 <% if request.env["HTTP_REFERER"] && URI.parse(request.env["HTTP_REFERER"]).host == "www.sandbox.paypal.com" %>
 	<%= render partial: "thanks" %>
 
 	<div class="col-md-8 col-md-offset-1">
-		<%= render partial: "devise/registrations/form", locals: { package: "itca" } %>
+	  <% if params[:p] %>
+		  <%= render partial: "devise/registrations/form", locals: { package: params[:p] } %>
+		<% else %>
+		  <%= render partial: "devise/registrations/form", locals: { package: "none" } %>
+		<% end %>
 	</div>
 <% else %>
   How did you get here?
