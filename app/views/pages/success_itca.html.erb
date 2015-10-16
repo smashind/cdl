@@ -1,6 +1,6 @@
 <p>
 <% if request.env["HTTP_REFERER"] %>
-  <%= request.env["HTTP_REFERER"].host %>
+  <%= URI.parse(request.env["HTTP_REFERER"]).host %>
 <% else %>
 Nothing.
 <% end %>
