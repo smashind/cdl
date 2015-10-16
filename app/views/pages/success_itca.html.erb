@@ -1,5 +1,9 @@
-<%= render partial: "thanks" %>
+<% if request.env["HTTP_REFERER"] && URI.parse(request.env["HTTP_REFERER"]).host == "paypal.com" %>
+	<%= render partial: "thanks" %>
 
-<div class="col-md-8 col-md-offset-1">
-	<%= render partial: "devise/registrations/form", locals: { package: "itca" } %>
-</div>
+	<div class="col-md-8 col-md-offset-1">
+		<%= render partial: "devise/registrations/form", locals: { package: "itca" } %>
+	</div>
+<% else %>
+  How did you get here?
+<% end %>
