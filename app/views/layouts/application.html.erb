@@ -25,8 +25,8 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-	      <a href="/" class="navbar-brand"><i class="fa fa-book"></i> CDL Study Guides</a>
-	      <a href="/" class="navbar-brand"><i class="fa fa-pencil"></i> CDL Practice Tests</a>
+	      <%= link_to raw('<i class="fa fa-book"></i> CDL Study Guides'), :study_and_practice, class: "navbar-brand" %>
+	      <%= link_to raw('<i class="fa fa-pencil"></i> CDL Practice Tests'), :study_and_practice, class: "navbar-brand" %>
 	    </div>
 	    <div class="navbar-collapse collapse" id="navbar">   
 	      
@@ -44,7 +44,7 @@
 	        	</li>
 	        	
 	        <% else %>
-	            <%= link_to "Pass Your Tests Now", order_path, class: "btn btn-danger navbar-btn order" %>
+	            <%= link_to "Pass Your Tests Now", :study_and_practice, class: "btn btn-danger navbar-btn order" %>
 	          <!--
 		        <li><%#= link_to "Create Account", new_user_registration_path %></li>
 		        <li><%#= link_to "Log In", new_user_session_path %></li>
