@@ -1,12 +1,19 @@
 Rails.application.routes.draw do
+  
+  root 'pages#cdl_optin'
+  # root 'pages#index'
+
   resources :attempts
   resources :choices
   resources :questions
+
+  # Practice Tests
   resources :tests do
     resources :questions
   end
+
   devise_for :users
-  root 'pages#index'
+  
   get 'order', to: 'pages#order'
 
   # Marketing pages
@@ -18,9 +25,10 @@ Rails.application.routes.draw do
   get 'passenger-vehicle-endorsement', to: 'pages#passenger_vehicle_endorsement', as: :passenger_vehicle_endorsement
   get 'school-bus-endorsement', to: 'pages#school_bus_endorsement', as: :school_bus_endorsement
 
-  post 'payment_notifications', controller: 'payment_notifications', action: 'create'
+  # Successful payment/signup page
   get "success", to: 'pages#success'
 
+  # post 'payment_notifications', controller: 'payment_notifications', action: 'create'
   # get "success", to: 'pages#success'
   # get "success_premium", to: 'pages#success_premium'
   # get "success_ultimate", to: 'pages#success_ultimate'

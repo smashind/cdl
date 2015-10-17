@@ -1,5 +1,13 @@
 <% if request.env["HTTP_REFERER"] && URI.parse(request.env["HTTP_REFERER"]).host == "www.sandbox.paypal.com" %>
-	<%= render partial: "thanks" %>
+	<div class="row">
+		<div class="col-sm-12 text-center">
+		  <div class="well">
+				<h1>Thank you for your order!</h1>
+				<p>Your receipt has been emailed to you and you can review your payment in your Paypal account.</p>
+				<h4>Please create your account below to access your study materials.</h4>
+			</div>
+		</div>
+	</div>
 
 	<div class="col-md-8 col-md-offset-1">
 	  <% if params[:p] %>
