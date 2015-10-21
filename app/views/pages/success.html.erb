@@ -1,4 +1,4 @@
-<% if request.env["HTTP_REFERER"] && URI.parse(request.env["HTTP_REFERER"]).host == "www.sandbox.paypal.com" %>
+<% if request.env["HTTP_REFERER"] && URI.parse(request.env["HTTP_REFERER"]).host == "www.paypal.com" %>
 	<div class="row">
 		<div class="col-sm-12 text-center">
 		  <div class="well">
@@ -17,5 +17,8 @@
 		<% end %>
 	</div>
 <% else %>
-  How did you get here?
+  Oops! It looks like there was a mistake. Taking you back to civilization.
+  <script type="text/javascript">
+    window.location.href="<%= root_url %>"
+  </script>
 <% end %>

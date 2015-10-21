@@ -25,23 +25,24 @@
 			  <%= f.hidden_field :incorrect %>
 			  <%= f.submit "Save and resume later", class: "btn btn-warning pull-right" %>
 		  <% end %>
-		<% else %>
-		<!-- Making a new save (checking first to make sure that this is not the first question) -->
-			<% unless @previous_question == nil %>
-			  <%= form_for(@attempt = Attempt.new) do |f| %>
-				  <%= f.hidden_field :test_id, value: @question.test.id %>
-				  <%= f.hidden_field :place, value: @question.id %>
-				  <%= f.hidden_field :user_id, value: current_user.id %>
-			    <%= f.hidden_field :score %>
-			    <%= f.hidden_field :incorrect %>
-				  <%= f.submit "Save and resume later", class: "btn btn-warning pull-right" %>
-			  <% end %>
-			<% end %>
 		<% end %>
-	<% else %>
+	<!-- The param size is too large and will cause a DB error, meaning the user likely entered it in -->
+	<% elsif params[:attempt] %>
     <script type="text/javascript">
       window.location.href="<%= tests_path %>"
     </script>
+  <!-- Making a new save (checking first to make sure that this is not the first question) -->
+  <% else %>
+    <% unless @previous_question == nil %>
+		  <%= form_for(@attempt = Attempt.new) do |f| %>
+			  <%= f.hidden_field :test_id, value: @question.test.id %>
+			  <%= f.hidden_field :place, value: @question.id %>
+			  <%= f.hidden_field :user_id, value: current_user.id %>
+		    <%= f.hidden_field :score %>
+		    <%= f.hidden_field :incorrect %>
+			  <%= f.submit "Save and resume later", class: "btn btn-warning pull-right" %>
+		  <% end %>
+		<% end %>
 	<% end %>
 </div>
 
@@ -59,21 +60,24 @@
 				  <%= f.hidden_field :place, value: nil %>
 				  <%= f.hidden_field :completed, value: true %>
 				  <%= f.submit "Finish", class: "btn btn-danger pull-right" %>
-		    <% end %>
-		  <% else %>
-			  <%= form_for(@attempt = Attempt.new) do |f| %>
-				  <%= f.hidden_field :test_id, value: @question.test.id %>
-				  <%= f.hidden_field :score, id: "finish-score" %>
-				  <%= f.hidden_field :incorrect, id: "finish-incorrect" %>
-				  <%= f.hidden_field :place, value: nil %>
-				  <%= f.hidden_field :completed, value: true %>
-				  <%= f.submit "Finish", class: "btn btn-danger pull-right" %>
-		    <% end %>
+		    <% end %>  
 		  <% end %>
-		<% else %>
+		<!-- The param size is too large and will cause a DB error, meaning the user likely entered it in -->
+		<% elsif params[:attempt] %>
 	    <script type="text/javascript">
 	      window.location.href="<%= tests_path %>"
 	    </script>
+	  <!-- Finishing the test without ever having saved an attempt -->
+	  <% else %>
+		  <%= form_for(@attempt = Attempt.new) do |f| %>
+		    <%= f.hidden_field :user_id, value: current_user.id %>
+			  <%= f.hidden_field :test_id, value: @question.test.id %>
+			  <%= f.hidden_field :score, id: "finish-score" %>
+			  <%= f.hidden_field :incorrect, id: "finish-incorrect" %>
+			  <%= f.hidden_field :place, value: nil %>
+			  <%= f.hidden_field :completed, value: true %>
+			  <%= f.submit "Finish", class: "btn btn-danger pull-right" %>
+	    <% end %>
 	  <% end %>
 	<% else %>
 	  <!-- If there is another question and this is a continuation, this is the "Next" button -->
@@ -85,13 +89,18 @@
 		    <% id = p['attempt'].first %>
 		    <a class= "btn btn-info pull-right next-button" href='/tests/<%= @question.test.id %>/questions/<%= @next_question.id %>?attempt=<%= id %>'>Next question  <i class="fa fa-angle-double-right"></i></a>
 		  <% else %>
-		    <!-- If this is a new attempt, this is the simple next button -->
-		    <%= link_to raw('Next question  <i class="fa fa-angle-double-right"></i>'), test_question_path(params[:test_id], @next_question.id), class: "btn btn-info pull-right next-button" %>
+		    <script type="text/javascript">
+	        window.location.href="<%= tests_path %>"
+	      </script>
 		  <% end %>
-		<% else %>
+		<!-- The param size is too large and will cause a DB error, meaning the user likely entered it in -->
+		<% elsif params[:attempt] %>
 	    <script type="text/javascript">
 	      window.location.href="<%= tests_path %>"
 	    </script>
+		<% else %>
+		  <!-- If this is a new attempt, this is the simple next button -->
+		  <%= link_to raw('Next question  <i class="fa fa-angle-double-right"></i>'), test_question_path(params[:test_id], @next_question.id), class: "btn btn-info pull-right next-button" %>
 	  <% end %>
 	<% end %>
 </div>
