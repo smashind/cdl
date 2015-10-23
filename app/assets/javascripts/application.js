@@ -19,10 +19,15 @@
 //= require sweet-alert
 //= require_tree .
 
-// Clear score before starting new test
 $(document).on("page:change", function() {
+	// Clear score before starting new test
 	$(".clear-score").click(function() {
 	  sessionStorage.clear();
 	  sessionStorage.setItem("path", true);
 	});
+
+  // Make package links clickable on marketing pages
+	$(".package-and-price").click(function() {
+    window.location = $(this).find("a").attr("href");
+  });
 });

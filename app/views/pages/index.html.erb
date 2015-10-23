@@ -87,6 +87,89 @@
 	</div>
 </div>
 
+</div><!-- Closes main container -->
+<section class="testimonial">
+	<div class="row">
+	  <div class="col-sm-3 col-sm-offset-1">
+	    <%= image_tag "testimonials/gabriel_mendoza.png" %>
+	    <p class="name">Gabriel Mendoza</p>
+	    <p class="location">Hanford, CA</p>
+	  </div>
+	  <div class="col-md-7 col-sm-8 testimonial-words">
+	    <p>The CDL study guides I've got through CDL Study Guide HQ really helped me out on cutting the amount of time and effort I spent learning the principles of commercial driving written test. Specially for those tricky questions that have your hair turn grey. I truly recommend it to anyone that wants the fast track!</p>
+	  </div>
+	</div>
+</section>
+
+<div class="container">
+  <div class="row home-main"> 
+	  <div class="col-md-1 col-hidden-xs"></div> 
+	  <div class="col-md-5 col-md-push-5">
+	    <div class="home-prices">
+	      <h2>Packages <span class="label label-danger">Best Deal</span></h2>
+	      <h3>Study Guides + Practice Tests</h3>
+	      <div class="package-and-price">
+	        <div class="col-xs-10 col-xxs-12">
+	          <%= link_to "Class A + All Endorsements", :class_a_endorsement, class: "h4" %>
+	          <p>(Study Guide + 150 Practice Questions)</p>
+	        </div>
+	        <div class="col-xs-2 col-xxs-12"><%= link_to "$47", :class_a_endorsement %></div>
+	      </div>
+	      <div class="package-and-price">
+	        <div class="col-xs-10 col-xxs-12">
+	          <%= link_to "Class B + All Endorsements", :class_b_endorsement, class: "h4" %>
+	          <p>(Study Guide + 100 Practice Questions)</p>
+	        </div>
+	        <div class="col-xs-2 col-xxs-12"><%= link_to "$47", :class_b_endorsement %></div>
+	      </div>
+	      <div class="package-and-price">
+	        <div class="col-xs-10 col-xxs-12">
+	          <%= link_to "Double/Triple", :double_triple_endorsement, class: "h4" %>
+	          <p>(Study Guide + 50 Practice Questions)</p>
+	        </div>
+	        <div class="col-xs-2 col-xxs-12"><%= link_to "$17", :double_triple_endorsement %></div>
+	      </div>
+	      <div class="package-and-price">
+	        <div class="col-xs-10 col-xxs-12">
+	          <%= link_to "Haz Mat (H)", :hazardous_materials_endorsement, class: "h4" %>
+	          <p>(Study Guide + 50 Practice Questions)</p>
+	        </div>
+	        <div class="col-xs-2 col-xxs-12"><%= link_to "$17", :hazardous_materials_endorsement %></div>
+	      </div>
+	      <div class="package-and-price">
+	        <div class="col-xs-10 col-xxs-12">
+	          <%= link_to "Tanker (N)", :tank_vehicle_endorsement, class: "h4" %>
+	          <p>(Study Guide + 50 Practice Questions)</p>
+	        </div>
+	        <div class="col-xs-2 col-xxs-12"><%= link_to "$17", :tank_vehicle_endorsement %></div>
+	      </div>
+	      <div class="package-and-price">
+	        <div class="col-xs-10 col-xxs-12">
+	          <%= link_to "Passenger (P)", :passenger_vehicle_endorsement, class: "h4" %>
+	          <p>(Study Guide + 50 Practice Questions)</p>
+	        </div>
+	        <div class="col-xs-2 col-xxs-12"><%= link_to "$17", :passenger_vehicle_endorsement %></div>
+	      </div>
+	      <div class="package-and-price">
+	        <div class="col-xs-10 col-xxs-12">
+	          <%= link_to "School Bus (S)", :school_bus_endorsement, class: "h4" %>
+	          <p>(Study Guide + 50 Practice Questions)</p>
+	        </div>
+	        <div class="col-xs-2 col-xxs-12"><%= link_to "$17", :school_bus_endorsement %></div>
+	      </div>
+	    </div>
+	  </div>
+
+  <div class="col-md-5 col-md-pull-5">
+    <div class="home-info">
+      <h3>CDL Practice Tests</h3>
+      <p>If you are looking for CDL practice tests, you came to the right spot. Our Class A CDL test is unmatched in the industry. Our editors work hard every day to ensure that you are given the most most accurate and current CDL practice test questions available. Don't be fooled - this is not an easy exam. But with hard work, determination, and our proven method, you will pass.</p>
+      <h3>CDL Knowledge Test</h3>
+      <p>If you are looking for the ultimate CDL test online, look no further. CDLStudyGuideHQ.com is by far the best study resource on the market. It is no coincidence that our tests win the "CDL Pre-Test Resource" awards every year. If you are a looking for a free CDL test, we understand. Not everyone has the money to spend on testing resources. That is why we created our hardship program. If you qualify, we will send you a discount coupon to help you achieve your goals.</p>
+    </div>
+  </div>
+</div>
+
 <script>
   $('#state-picker-button').click(function(e) {
   	e.preventDefault();
