@@ -263,7 +263,7 @@ p.home-bullets {
 	}
 }
 .pricing-row {
-	margin: 40px 0;
+	margin: 80px 0;
 }
 .pricing-table {
   margin-left: 8%;
@@ -303,7 +303,8 @@ p.home-bullets {
   background-color: #2C3E50; 
   font-size: 22px; 
 } 
-.pricing-table ul .price{ 
+.pricing-table ul .price {
+  border-top: 1px solid #EDEDED; 
   font-size: 75px;
   .dollar {
     font-size: 18px;
@@ -391,5 +392,86 @@ p.home-bullets {
         padding-left: 20px;
       }
     }
+  }
+}
+
+/* Test pages */
+.test-page-top {
+  padding: 40px 0;
+  .btn {
+    background-color: #ad3434;
+    border: none;
+    display: block;
+    font-weight: bold;
+    margin: 20px auto;
+    &:hover {
+      background-color: #962323;
+    }
+  }
+}
+.test-page-header {
+  background-color: #EDEDED;
+  padding: 50px 0;
+  ol.main-list {
+    ol.inner-list {
+      list-style-type: lower-alpha;
+    }
+  }
+  .video {
+    padding-top: 20px;
+  }
+  .videoWrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+  }
+  .videoWrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+.page-package-info {
+  margin-top: 40px;
+  h2 {
+    text-align: center;
+  }
+}
+ul.book {
+  list-style-type: none;
+  margin: 10px auto;
+  width: 350px;
+  @media (max-width: 430px) {
+    width: 100%;
+  }
+  li {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  li:before {
+    font-family: 'FontAwesome';
+    content: '\f00c';
+    margin:0 5px 0 -15px;
+  }
+}
+.cdl-book-image {
+  display: block;
+  margin: 20px auto;
+}
+ul.book.book-test {
+  margin: 40px auto;
+  @media (max-width: 767px) {
+    margin: 10px auto;
+  }
+}
+.package-cta {
+  background-color: #EDEDED;
+  padding: 10px 0 20px;
+  margin: 60px 0;
+  .btn {
+    margin-left: 20px;
   }
 }
