@@ -412,6 +412,17 @@ p.home-bullets {
 .test-page-header {
   background-color: #EDEDED;
   padding: 50px 0;
+  h2 {
+    font-weight: bold;
+    padding-bottom: 10px;
+  }
+  h4 {
+    padding-bottom: 10px;
+  }
+  h5 {
+    padding-bottom: 5px;
+    padding-left: 20px;
+  }
   ol.main-list {
     ol.inner-list {
       list-style-type: lower-alpha;
@@ -438,6 +449,9 @@ p.home-bullets {
   margin-top: 40px;
   h2 {
     text-align: center;
+  }
+  img.img-right {
+    float: right;
   }
 }
 ul.book {

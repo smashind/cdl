@@ -51,7 +51,7 @@ body.account-body {
 
 a.navbar-brand {
   &:hover, active {
-    color: #FFF !important;
+    color: #EDEDED !important;
   }
   @media (max-width: 490px) {
     font-size: 16px;
@@ -70,6 +70,10 @@ a.navbar-brand {
 }
 .label-danger {
   background-color: #A33 !important;
+}
+
+.navbar-nav > li > a:hover {
+  color: #EDEDED !important;
 }
 
 footer {
