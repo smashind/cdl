@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   root 'pages#cdl_optin'
+  get 'cdl-practice-test', to: 'pages#cdl_practice_test', as: :cdl_practice_test
   get 'thanks', to: 'pages#cdl_thank_you'
   get 'index', to: 'pages#index'
 
