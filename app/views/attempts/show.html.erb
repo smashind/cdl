@@ -2,7 +2,7 @@
 <% if @attempt.place? %>
 	<p>You have correctly answered: <%= pluralize(@attempt.score, 'question') %></p>
 	<p>You have incorrectly answered: <%= pluralize(@attempt.incorrect, 'question') %></p>
-	<p>There are <%= pluralize(remaining_questions(@attempt.test.questions.count, @attempt.score, @attempt.incorrect), 'question') %> remaining.</p>
+	<p>Left to answer: <%= pluralize(remaining_questions(@attempt.test.questions.count, @attempt.score, @attempt.incorrect), 'question') %></p>
 	<%= link_to raw('Let\'s Go <i class="fa fa-angle-double-right"></i>'), test_question_path(@attempt.test.id, @attempt.place, attempt: @attempt.id), id: "resume-test", class: "btn btn-success" %><br>
 <% elsif @attempt.completed %>
   <% if @attempt.score + @attempt.incorrect != @attempt.test.questions.count %>
