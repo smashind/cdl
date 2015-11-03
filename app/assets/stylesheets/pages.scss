@@ -130,6 +130,10 @@ p.home-bullets {
     margin-top: 30px;
   }
 }
+p.state-paragraph {
+  text-align: left;
+  margin: 40px 0 30px;
+}
 .study-guide-info {
   border-left: 3px solid #3A99D3;
   padding-bottom: 20px;
@@ -171,9 +175,28 @@ p.home-bullets {
     width: 250px;
   }
 }
+p.home-or {
+  border-bottom: 1px solid #2C3E50;
+  font-style: italic;
+  line-height: 0.1em; 
+  margin: 30px auto;
+  max-width: 250px;
+  text-align: center;
+  span {
+    background: #FFF;
+    padding: 0 10px;
+  }
+}
+a.other-packages {
+  color: #2C3E50;
+  text-decoration: underline;
+  &:hover {
+    color: #3a536b;
+  }
+}
 .guarantee {
 	background: #3a99d3;
-	margin: 20px auto 0 auto;
+	margin: 40px auto 0 auto;
 	max-width: 650px;
 	min-height: 200px;
 	padding: 20px;

@@ -1,6 +1,21 @@
 <%= render partial: "top_section" %>
 
 <div class="row text-center">
+  <% if params[:state] && @states.include?(params[:state]) %>
+    <% @state = params[:state] %>
+    <h1><%= params[:state] %> CDL Practice Tests and Study Guides</h1>
+  <% else %>
+    <h1>CDL Practice Tests and Study Guides</h1>
+  <% end %>
+
+  <div class="col-sm-10 col-sm-offset-1">
+    <p class="state-paragraph">The <%= @state %> CDL exams are not easy to pass. That's why we created the <%= @state %> CDL Practice Test and Study Guide System. We've spent hundreds of hours developing materials that are designed to make studying simple so you don't have to stress and can pass them the first time. That's right - we're so confident in our <%= @state %> study guides and practice test portal (for all endorsements) that we guarantee you'll pass if you use them.</p>
+  </div>
+  <div class="col-sm-10 col-sm-offset-1">
+    <%= link_to raw("I Want to Pass the #{@state} Class A CDL Exam"), :class_a_endorsement, class: "btn btn-danger" %>
+    <p class="home-or"><span>or</span></p>
+    <p><%= link_to "Select a specific endorsement package below", "#", class: "other-packages pricing-section-link" %></p>
+  </div>
   <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xxs-12">
     <div class="guarantee">
       <%= image_tag("guarantee.png") %>
@@ -13,6 +28,7 @@
 <div class="row home-main"> 
   <div class="col-md-1 col-hidden-xs"></div> 
   <div class="col-md-5 col-md-push-5">
+    <a name="pricing-section"></a>
     <div class="home-prices">
       <h2>Packages <span class="label label-danger">Best Deal</span></h2>
       <h3>Study Guides + Practice Tests</h3>

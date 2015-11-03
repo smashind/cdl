@@ -176,8 +176,9 @@
   	if ($('#your-state').val() === "none") {
   		sweetAlert("Please choose your state first.");
   	} else {
-  		var state = $('#your-state :selected').text().replace(/\s+/g, '-').toLowerCase();
-  		window.location = '<%= root_url %>#' + state + '-cdl-study-guide';
+  		var state = $('#your-state :selected').text();//.replace(/\s+/g, '-').toLowerCase();
+  		window.location = '<%= study_and_practice_url %>?state=' + state;
+  		// window.location = '<%= root_url %>#' + state + '-cdl-study-guide';
   	}
   })
 </script>
