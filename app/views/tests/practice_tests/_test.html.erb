@@ -1,0 +1,10 @@
+<div class="well">
+	<h3><%= test.name %></h3>
+	<h4>Section: <%= test.code %></h4>
+	<% if active_attempts(current_user, test).any? && last_attempt_in_progress(current_user, test) %>
+	  <%= link_to "Resume this test", attempt_path(last_attempt(current_user, test).id), class: "btn btn-success" %><span class="or">or</span> 
+	  <%= link_to 'Start over', test_question_path(test.id, test.questions.first.id), class: "clear-score btn btn-info", data: { confirm: "Are you sure? This will overwrite your previous attempt if you save your place." } %>
+	<% else %>
+	  <%= link_to raw('Start the test <i class="fa fa-angle-double-right"></i>'), test_question_path(test.id, test.questions.first.id), class: "clear-score btn btn-info" %>
+	<% end %>
+</div>

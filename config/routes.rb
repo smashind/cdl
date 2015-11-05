@@ -17,8 +17,6 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
-  
-  get 'order', to: 'pages#order'
 
   # Marketing pages
   get 'class-a-endorsement', to: 'pages#class_a_endorsement', as: :class_a_endorsement
@@ -31,4 +29,6 @@ Rails.application.routes.draw do
 
   # Successful payment/signup page
   get "success", to: 'pages#success'
+
+  get "dashboard", to: 'tests#index', as: :dashboard
 end

@@ -22,3 +22,29 @@
 .test-creation-form {
   margin: 20px 0;
 }
+.remove_nested_fields_link {
+  margin-top: -25px;
+  margin-right: -10px;
+}
+#user-practice-study {
+  h1 {
+    text-align: center;
+  }
+  h2 {
+    font-size: 24px;
+  }
+  h3 {
+    font-weight: bold;
+    margin: 0;
+  }
+  h4 {
+    margin-bottom: 20px;
+  }
+  .or {
+    padding: 10px;
+    @media (max-width: 367px) {
+      display: block;
+      padding: 20px;
+    }
+  }
+}

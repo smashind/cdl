@@ -1,5 +1,6 @@
 class Test < ActiveRecord::Base
 	validates_presence_of :name
+	validates_presence_of :code
 	has_many :questions, dependent: :destroy
 	has_many :choices, through: :questions
 	has_many :attempts

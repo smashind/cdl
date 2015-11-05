@@ -24,12 +24,13 @@
       </div>
     </div>
     
-      <%= f.nested_fields_for :questions do |q| %>
+      <%= f.nested_fields_for :questions do |q| %>  
       <div class="well bs-component">
+        
         <div class="form-group">
           <%= q.label :text, "Question", class: "col-md-2 control-label" %>
           <div class="col-md-8">   
-            <%= q.text_area :text, required: true, class: "form-control" %>
+            <%= q.text_area :text, class: "form-control" %>
           </div>
         </div>
           <% 3.times { q.object.send(:choices).build } %>
@@ -43,6 +44,7 @@
               </div>
             </div>
           <% end %>
+          <%= q.remove_nested_fields_link "Remove Question", class: "btn btn-danger btn-sm pull-right" %>
         <% end %>
         <div class="form-group">
           <div class="col-md-8 col-md-offset-2">

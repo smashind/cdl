@@ -1,0 +1,7 @@
+<%= render partial: "tests/head_practice", locals: { type: "School Bus Endorsement Practice Tests" } %>
+
+<% @tests.includes(:attempts).each do |test| %>
+	<% if ["10","11","12","13"].include?(test.code) %>
+		<%= render partial: "tests/practice_tests/test", object: test %>
+	<% end %>
+<% end%>

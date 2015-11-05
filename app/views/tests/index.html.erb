@@ -1,16 +1,120 @@
-<h1>CDL Practice Tests</h1>
+<%#= current_user.package %>
+<div id="user-practice-study">
+  <h1>Your CDL Study System Portal</h1>
+  <div class="row text-center">
+    <% case current_user.package %>
+      <% when "pcca" %>
+        <div class="col-md-6 col-sm-12">
+          <%= render partial: "tests/practice_tests/itca" %>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <%= render partial: "tests/study_guides/isca" %>
+        </div>
+      <% when "pccb" %>
+        <div class="col-md-6 col-sm-12">
+          <%= render partial: "tests/practice_tests/itcb" %>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <%= render partial: "tests/study_guides/iscb" %>
+        </div>
+      <% when "pchm" %>
+        <div class="col-md-6 col-sm-12">
+          <%= render partial: "tests/practice_tests/ithm" %>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <%= render partial: "tests/study_guides/ishm" %>
+        </div>
+      <% when "pcdt" %>
+        <div class="col-md-6 col-sm-12">
+          <%= render partial: "tests/practice_tests/itdt" %>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <%= render partial: "tests/study_guides/isdt" %>
+        </div>
+      <% when "pctv" %>
+        <div class="col-md-6 col-sm-12">
+          <%= render partial: "tests/practice_tests/ittv" %>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <%= render partial: "tests/study_guides/istv" %>
+        </div>
+      <% when "pcpp" %>
+        <div class="col-md-6 col-sm-12">
+          <%= render partial: "tests/practice_tests/itpp" %>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <%= render partial: "tests/study_guides/ispp" %>
+        </div>
+      <% when "pcsb" %>
+        <div class="col-md-6 col-sm-12">
+          <%= render partial: "tests/practice_tests/itsb" %>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <%= render partial: "tests/study_guides/issb" %>
+        </div>
+      <% when "isca" %>
+        <div class="col-md-12">
+          <%= render partial: "tests/study_guides/isca" %>
+        </div>
+      <% when "iscb" %>
+        <div class="col-md-12">
+          <%= render partial: "tests/study_guides/iscb" %>
+        </div>
+      <% when "ishm" %>
+        <div class="col-md-12">
+          <%= render partial: "tests/study_guides/ishm" %>
+        </div>
+      <% when "isdt" %>
+        <div class="col-md-12">
+          <%= render partial: "tests/study_guides/isdt" %>
+        </div>
+      <% when "isdt" %>
+        <div class="col-md-12">
+          <%= render partial: "tests/study_guides/istv" %>
+        </div>
+      <% when "istv" %>
+        <div class="col-md-12">
+          <%= render partial: "tests/study_guides/ispp" %>
+        </div>
+      <% when "ispp" %>
+        <div class="col-md-12">
+          <%= render partial: "tests/study_guides/issb" %>
+        </div>
+      <% when "itca" %>
+        <div class="col-md-12">
+          <%= render partial: "tests/practice_tests/itca" %>
+        </div>
+      <% when "itcb" %>
+        <div class="col-md-12">
+          <%= render partial: "tests/practice_tests/itcb" %>
+        </div>
+      <% when "ithm" %>
+        <div class="col-md-12">
+          <%= render partial: "tests/practice_tests/ithm" %>
+        </div>
+      <% when "itdt" %>
+        <div class="col-md-12">
+          <%= render partial: "tests/practice_tests/itdt" %>
+        </div>
+      <% when "ittv" %>
+        <div class="col-md-12">
+          <%= render partial: "tests/practice_tests/ittv" %>
+        </div>
+      <% when "itpp" %>
+        <div class="col-md-12">
+          <%= render partial: "tests/practice_tests/itpp" %>
+        </div>
+      <% when "itsb" %>
+        <div class="col-md-12">
+          <%= render partial: "tests/practice_tests/itsb" %>
+        </div>
+      <% else %>
+        <p>There was a problem. Please contact support.</p>
+    <% end %>
+  </div>
+</div>
 
-<%= current_user.package %>
-
-<% if current_user.package == "ult932" %>
-  <%= render partial: "ultimate" %>
-<% elsif current_user.package == "x16ty" %>
-  <%= render partial: "premium" %>
-<% elsif current_user.package == "regsies" %>
-  <%= render partial: "basic" %>
-<% else %>
-  <p>There was a problem. Please contact support.</p>
-<% end %>
+<h1>Debug Stuff Below</h1>
 
 <% @tests.includes(:attempts).each do |test| %>
   <h3><%= test.name %></h3>
