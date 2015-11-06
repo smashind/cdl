@@ -1,0 +1,63 @@
+<h1>Editing "<%= @test.name %>"</h1>
+<div class="col-md-8 col-sm-10 test-creation-form">
+  <div class="form-horizontal">
+  <%= form_for(@test) do |f| %>
+    <% if @test.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@test.errors.count, "error") %> prohibited this test from being saved:</h2>
+
+        <ul>
+        <% @test.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :name, "Test Name", class: "col-md-2 control-label" %>
+      <div class="col-md-6">
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+      <%= f.label :code, "Test code", class: "col-md-2 control-label" %>
+      <div class="col-md-2">
+        <%= f.text_field :code, class: "form-control" %>
+      </div>
+    </div>
+    
+      <%= f.nested_fields_for :questions do |q| %>  
+      <div class="well bs-component">
+        
+        <div class="form-group">
+          <%= q.label :text, "Question", class: "col-md-2 control-label" %>
+          <div class="col-md-8">   
+            <%= q.text_area :text, class: "form-control" %>
+          </div>
+        </div>
+          <% 3.times { q.object.send(:choices).build } %>
+          <%= q.nested_fields_for :choices do |c| %>
+            <div class="form-group">
+              <%= c.label :answer, "Answer", class: "col-md-2 control-label" %>
+              <div class="col-md-8">      
+                <%= c.text_field :answer, class: "form-control" %>
+                <%= c.label :is_correct, "Correct answer", class: "correct-label" %>
+                <%= c.check_box :is_correct %>
+              </div>
+            </div>
+          <% end %>
+          <%= q.remove_nested_fields_link "Remove Question", class: "btn btn-danger btn-sm pull-right" %>
+        <% end %>
+        <div class="form-group">
+          <div class="col-md-8 col-md-offset-2">
+            <%= f.add_nested_fields_link :questions, 'Add Question', class: 'btn btn-success' %>
+          </div>
+        </div>
+      </div>
+    <div class="form-group">
+      <div class="col-md-8 col-md-offset-2">
+        <%= f.submit "Create Test", class: "btn btn-primary btn-block" %>
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div>

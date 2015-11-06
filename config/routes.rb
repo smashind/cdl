@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  get 'contact_messages/new'
+
+  get 'contact_messages/create'
+
   root 'pages#cdl_optin'
   get 'cdl-practice-test', to: 'pages#cdl_practice_test', as: :cdl_practice_test
   get 'thanks', to: 'pages#cdl_thank_you'
@@ -17,6 +21,13 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
+
+  # Footer pages
+  get 'about', to: 'pages#about', as: :about
+  get 'contact', to: 'pages#contact', as: :contact
+  post 'contact_messages', controller: 'contact_messages', action: 'create'
+  get 'guarantee', to: 'pages#guarantee', as: :guarantee
+  get 'terms', to: 'pages#terms', as: :terms
 
   # Marketing pages
   get 'class-a-endorsement', to: 'pages#class_a_endorsement', as: :class_a_endorsement

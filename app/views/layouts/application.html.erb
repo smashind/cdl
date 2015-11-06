@@ -71,17 +71,26 @@
   </div>
 
 	<div class="container">
-	  <p><%= notice %></p>
-    <p><%= alert %></p>
+	  <% if notice %>
+		  <div class="alert alert-dismissible alert-success">
+			  <button type="button" class="close" data-dismiss="alert">X</button>
+			  <%= notice %>
+		  </div>
+		<% elsif alert %>
+	    <div class="alert alert-dismissible alert-danger">
+		    <button type="button" class="close" data-dismiss="alert">X</button>
+		    <%= alert %>
+	    </div>
+	  <% end %>
     <%= yield %>
   </div>
   <% if user_signed_in? %>
 		<footer class="account-footer">
 		  <ul>
-		    <li><%= link_to "About CDLStudyGuideHQ.com", "#" %>
-		    <li><%= link_to "Help & Support", "#" %>
-		    <li><%= link_to "Guarantee", "#" %>
-		    <li><%= link_to "Terms & Conditions", "#" %>
+		    <li><%= link_to "About CDLStudyGuideHQ.com", :about %>
+		    <li><%= link_to "Help & Support", :contact %>
+		    <li><%= link_to "Guarantee", :guarantee %>
+		    <li><%= link_to "Terms & Conditions", :terms %>
 		    <li><%= link_to "Blog", "http://blog.cdlstudyguidehq.com" %>
 		  </ul>
 		</footer>
@@ -89,10 +98,10 @@
 	  <footer>
 		  <%= image_tag('guarantee-paypal.png') %>
 		  <ul>
-		    <li><%= link_to "About CDLStudyGuideHQ.com", "#" %>
-		    <li><%= link_to "Help & Support", "#" %>
-		    <li><%= link_to "Guarantee", "#" %>
-		    <li><%= link_to "Terms & Conditions", "#" %>
+		    <li><%= link_to "About CDLStudyGuideHQ.com", :about %>
+		    <li><%= link_to "Help & Support", :contact %>
+		    <li><%= link_to "Guarantee", :guarantee %>
+		    <li><%= link_to "Terms & Conditions", :terms %>
 		    <li><%= link_to "Blog", "http://blog.cdlstudyguidehq.com" %>
 		  </ul>
 		</footer>

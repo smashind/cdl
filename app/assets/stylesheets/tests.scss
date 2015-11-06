@@ -21,6 +21,9 @@
 }
 .test-creation-form {
   margin: 20px 0;
+  .well.bs-component > .nested_fields:nth-child(n+5) {
+    display: none;
+  }
 }
 .remove_nested_fields_link {
   margin-top: -25px;
