@@ -11,7 +11,11 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) << :name
   end
 
+  def after_sign_up_path_for(resource)
+    "http://www.cdlstudyguidehq.com/users/sign_in"
+  end
+
   def after_sign_in_path_for(resource)
-  	"http://www.cdlstudyguidehq.com/dashboard"
+  	dashboard_path
 	end
 end
