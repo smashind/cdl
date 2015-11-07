@@ -1,9 +1,4 @@
 Rails.application.routes.draw do
-  
-  get 'contact_messages/new'
-
-  get 'contact_messages/create'
-
   root 'pages#cdl_optin'
   get 'cdl-practice-test', to: 'pages#cdl_practice_test', as: :cdl_practice_test
   get 'thanks', to: 'pages#cdl_thank_you'

@@ -30,4 +30,9 @@ $(document).on("page:change", function() {
 	$(".package-and-price").click(function() {
     window.location = $(this).find("a").attr("href");
   });
+
+  // Fill in password confirmtion automatically
+  // $("#user_password").keyup(function() {
+  //  $("#user_password_confirmation").val(this.value);
+  // });
 });
