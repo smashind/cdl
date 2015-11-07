@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     resources :questions
   end
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
 
   # Footer pages
   get 'about', to: 'pages#about', as: :about
