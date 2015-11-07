@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  root 'pages#cdl_optin'
+  root 'pages#index'
+  get 'cdl-study-guide', to: 'pages#cdl_optin', as: :cdl_study_guide
   get 'cdl-practice-test', to: 'pages#cdl_practice_test', as: :cdl_practice_test
   get 'thanks', to: 'pages#cdl_thank_you'
-  get 'index', to: 'pages#index'
 
   get 'cdl-study-guides-and-practice-tests', to: 'pages#cdl_study_guides_and_practice_tests', as: :study_and_practice
 
