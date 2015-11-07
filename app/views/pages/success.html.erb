@@ -23,10 +23,5 @@
 	  <h4>After you create your account, you'll be able to sign in and get access to your study materials!</h4>
 	</div>
 <% else %>
-  Oops! It looks like there was a mistake. Taking you back to civilization.
-  You came from: 
-  <%= request.env["HTTP_REFERER"] %>
-  <script type="text/javascript">
-    //window.location.href="http://www.cdlstudyguidehq.com/"
-  </script>
+  Oops! It looks like there was a mistake.
 <% end %>
