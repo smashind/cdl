@@ -7,4 +7,9 @@
 	<% else %>
 	  <%= link_to raw('Start the test <i class="fa fa-angle-double-right"></i>'), test_question_path(test.id, test.questions.first.id), class: "clear-score btn btn-info" %>
 	<% end %>
+	<% if current_user.admin %>
+		<div class="row text-center" style="margin-top: 10px">
+		  <%= link_to "Edit test", edit_test_path(test), class: "btn btn-warning" %>
+		</div>
+	<% end %>
 </div>
