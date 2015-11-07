@@ -3,7 +3,7 @@
 	<p>You have correctly answered: <%= pluralize(@attempt.score, 'question') %></p>
 	<p>You have incorrectly answered: <%= pluralize(@attempt.incorrect, 'question') %></p>
 	<p>Left to answer: <%= pluralize(remaining_questions(@attempt.test.questions.count, @attempt.score, @attempt.incorrect), 'question') %></p>
-	<%= link_to raw('Let\'s Go <i class="fa fa-angle-double-right"></i>'), test_question_path(@attempt.test.id, @attempt.place, attempt: @attempt.id), id: "resume-test", class: "btn btn-success" %><br>
+	<%= link_to raw('Resume the test <i class="fa fa-angle-double-right"></i>'), test_question_path(@attempt.test.id, @attempt.place, attempt: @attempt.id), id: "resume-test", class: "btn btn-success" %><br>
 <% elsif @attempt.completed %>
   <% if @attempt.score + @attempt.incorrect != @attempt.test.questions.count %>
     <h3>There was a problem calculating your score. Please try the test again.</h3>
@@ -14,6 +14,9 @@
 <% else %>
   <p>There was a problem.</p>
 <% end %>
+<div style="margin-top: 20px">
+  <%= link_to "Back to my dashboard", :dashboard, class: "btn btn-primary" %>
+</div>
 
 <script>
 	// Resume the test
