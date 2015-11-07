@@ -9,16 +9,22 @@
 		</div>
 	</div>
 
-	<div class="col-md-8 col-md-offset-1">
-	  <% if params[:p] %>
-		  <%= render partial: "devise/registrations/form", locals: { package: params[:p] } %>
-		<% else %>
-		  <%= render partial: "devise/registrations/form", locals: { package: "none" } %>
-		<% end %>
+  <div class="row">
+		<div class="col-md-8 col-md-offset-1">
+		  <% if params[:p] %>
+			  <%= render partial: "devise/registrations/form", locals: { package: params[:p] } %>
+			<% else %>
+			  <%= render partial: "devise/registrations/form", locals: { package: "none" } %>
+			<% end %>
+		</div>
+	</div>
+
+	<div class="row text-center">
+	  <h4>After you create your account, you'll be able to sign in and get access to your study materials!</h4>
 	</div>
 <% else %>
   Oops! It looks like there was a mistake. Taking you back to civilization.
   <script type="text/javascript">
-     window.location.href="http://www.cdlstudyguidehq.com/"
+    window.location.href="http://www.cdlstudyguidehq.com/"
   </script>
 <% end %>
