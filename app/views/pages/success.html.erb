@@ -18,5 +18,6 @@
 	</div>
 <% else %>
   Oops! It looks like there was a mistake. Taking you back to civilization.
-  <%= URI.parse(request.env["HTTP_REFERER"]).host %>
+  <%= request.env["HTTP_REFERER"] %>
+  <%#= URI.parse(request.env["HTTP_REFERER"]).host %>
 <% end %>
