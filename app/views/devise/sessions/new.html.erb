@@ -1,6 +1,8 @@
 <div class="row text-center">
-  <div class="alert alert-dismissible alert-success">
-    Welcome! Please sign in below to access your study materials!
+  <div class="col-sm-12">
+    <div class="alert alert-dismissible alert-success">
+      Welcome! Please sign in below to access your study materials!
+    </div>
   </div>
 </div>
 <div class="row">
@@ -22,9 +24,6 @@
             <div class="col-sm-9">
               <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
             </div>
-            <div class="col-sm-9 col-sm-offset-3 forgot">
-              <%= render "devise/shared/links" %>
-            </div>
           </div>
 
           <div class="form-group">
@@ -36,8 +35,16 @@
             <% end -%>
           </div>
 
-          <div class="col-sm-9 col-sm-offset-3 submit-btn">
-            <%= f.submit "Let's Get Crackin!", class: "btn btn-primary btn-block" %>
+          <div class="form-group">
+            <div class="col-sm-9 col-sm-offset-3 submit-btn">
+              <%= f.submit "Let's Get Crackin!", class: "btn btn-primary btn-block" %>
+            </div>
+          </div>
+
+          <div class="row text-center">
+            <div class="col-sm-12 forgot">
+              <%= render "devise/shared/links" %>
+            </div>
           </div>
           <% end %>
 

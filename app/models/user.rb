@@ -6,4 +6,10 @@ class User < ActiveRecord::Base
 
   has_many :attempts, dependent: :destroy
   serialize :package
+
+  after_create :send_welcome_email
+
+  def send_welcome_email
+  	UserMailer.welcome(self).deliver_now
+  end
 end

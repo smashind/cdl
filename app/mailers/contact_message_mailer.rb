@@ -1,5 +1,5 @@
 class ContactMessageMailer < ActionMailer::Base
-  layout 'mail'
+  layout 'mailer'
   default from: "CDLBot <cdlbot@cdlstudyguidehq.com>"
 
   def contact_us(contact_message)
