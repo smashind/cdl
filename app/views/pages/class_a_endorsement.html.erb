@@ -5,17 +5,22 @@
 
 <div class="row text-center">
   <div class="col-sm-12">
-    <h1>The CDL Class A Study System</h1>
-    <h4>Includes the CDL Class A Study Guide and Access to the CDL Class A Practice Test Portal + All Endorsements!</h4>
+	  <% if params[:state] && @states.include?(params[:state]) %>
+	    <% @state = params[:state] %>
+	    <h1><%= params[:state] %> CDL Class A Study System</h1>
+	  <% else %>
+	    <h1>The CDL Class A Study System</h1>
+	  <% end %>
+    <h4>Includes the <%= @state %> CDL Class A Study Guide and Access to the <%= @state %>  CDL Class A Practice Test Portal + All Endorsements!</h4>
   </div>
 </div>
 
 <div class="row test-page-top">
   <div class="col-sm-12">
 	  
-    <p>Welcome to the CDL Study Guide System for the Class A exam! My name is Taylor. And for three years I have been teaching hundreds of students how to pass their CDL exam. Here’s the deal. I believe in our CDL Study System so much that I Guarantee that you will love it or I will refund your money, which is a huge pain in the butt.</p>
+    <p>Welcome to the CDL Study Guide System for the <%= @state %>  Class A exam! My name is Taylor, and for three years I have been teaching hundreds of students how to pass their CDL exam. Here’s the deal: I believe in our CDL Study System so much that I guarantee that you will love it and pass your <%= @state %>  written exam or I will refund ever penny.</p>
 
-    <p>Buying the Class A packages will all unlock all materials to pass all the endorsements. That includes: Doubles/Triples, Tank Vehicles, Hazardous Material, Passenger, and School Bus. It is the most comprehensive package on the internet. No other website or company comes close to offering what we are offering you here. We’ve spent hundreds of hours perfecting our CDL Study System.</p>
+    <p>Buying the <%= @state %> Class A Study System will unlock all our materials to ace every endorsement. That includes: Doubles/Triples, Tank Vehicles, Hazardous Material, Passenger, and School Bus. It is the most comprehensive package on the internet. No other website or company comes close to offering what we are offering you here. If you're serious about passing your <%= @state %> Class A exam, you can't afford to pass this up.</p>
 	</div>
 
 	<div class="col-sm-4 col-sm-offset-4">
@@ -30,9 +35,9 @@
 	  <div class="col-sm-5 col-sm-offset-1">
 			<h2>Material Covered</h2>
 
-			<h4><i class="fa fa-check"></i> Everything to pass for the Class A exam!</h4>
-			<h4><i class="fa fa-check"></i> Everything to pass all the Class B exam!</h4>
-			<h4><i class="fa fa-check"></i> Everything to pass all Endorsement Exams!</h4>
+			<h4><i class="fa fa-check"></i> Everything to pass the <%= @state %> Class A exam!</h4>
+			<h4><i class="fa fa-check"></i> Everything to pass the <%= @state %> Class B exam!</h4>
+			<h4><i class="fa fa-check"></i> All <%= @state %> Endorsement Exams!</h4>
 
 			<h5><i class="fa fa-arrow-right"></i> Doubles/Triples</h5>
 			<h5><i class="fa fa-arrow-right"></i> Tank Vehicles</h5>
@@ -42,7 +47,7 @@
 		</div>
 		<div class="col-sm-6 video">
 		  <div class="videoWrapper">
-	      <iframe src="//www.youtube.com/embed/HNWSfcY7eSo?rel=0" frameborder="0" allowfullscreen></iframe>
+	      <iframe src="//www.youtube.com/embed/Ik-lPTW6xFA?rel=0" frameborder="0" allowfullscreen></iframe>
 	    </div>
 	  </div>
 	</div>
@@ -51,15 +56,17 @@
 <div class="container">
   <div class="row page-package-info">
     <div class="col-sm-6">
-			<h2>CDL Class A Study Guide</h2>
+			<h2><%= @state %> CDL Class A Study Guide</h2>
 			<%= image_tag "cdl_study_guide-page.png", alt: "CDL Class A study guide", class: "cdl-book-image" %>
 			<ul class="book">
 			  <li>Simple to Understand!
 			  <li>Don't Memorize Hundreds of Pages!
-			  <li>We have YOUR State!
+			  <li>Optimized for <%= @state ? @state : "YOUR State" %>!
 			  <li>EASY TO READ
 			</ul>
-			<p>It took us a long time to create our Class A CDL Study Guide. After many long hours the Class A Study Guide is here for you to buy. Our strategy. Take the DMV manual plus actual exam questions, and create an easy to read Study Guide. We cut all the fluff and junk out. That means you do not have to memorize hundreds of pages of information!</p>
+			<p>It took us a long time to create the ultimate <%= @state %> Class A CDL Study Guide. Our strategy: Take the DMV manual plus actual exam questions, and create an easy to read Study Guide. We cut all the fluff and junk out because we know your time is valuable. That means you don't have to memorize hundreds of pages of information and can focus on what you need to know!</p>
+
+			<p>If you go through the <%= @state %> DMV manual, you'll find that there is a ton of information (it's overwhelming). This makes it a lot harder than it needs to be to pass the exams. That's why our <%= @state %> study guide is so valuable - it cuts to the chase.</p>
 
 			<p>You'll find that when you use our strategy guide, you actually learn the material while preparing yourself for the test. What that means is not only will you pass the test and get your license, you'll actually be ready to go out and use the information. A rewarding commercial driving career is well within your reach.
 
@@ -69,20 +76,20 @@
 		</div>
 
 		<div class="col-sm-6">
-			<h2>CDL Class A Practice Test</h2>
+			<h2><%= @state %> CDL Class A Practice Test</h2>
 			<%= image_tag "cdl-practice-test.png", alt: "CDL Class A endorsement practice test", class: "cdl-book-image" %>
 			<ul class="book">
-			  <li>Real Exam Questions!
+			  <li>Real <%= @state %> Exam Questions!
 			  <li>Hundreds of Questions!
 			  <li>Same as the DMV Test!
 			  <li>Take on any device 
 			</ul>
 
-			<p>Many of the exam questions that see in your practice test are what you will see on the actual Class A Practice Test. Some of our exam questions are even harder than the actual test! If you are able to pass our practice tests, you will have no problem passing the real thing! Our writers have spent hundreds of hours preparing these test questions. The time and effort shows.</p>
+			<p>Many of the exam questions that see in your practice test are what you will see on the actual <%= @state %> Class A Practice Test. Some of our exam questions are even harder than the actual test! If you are able to pass our practice tests, you will have no problem passing the real thing. Our writers have spent hundreds of hours preparing these test questions. The time and effort shows.</p>
 
-			<p>Our Class A Practice Test package offers hundreds of exam questions. We recommend taking practice tests in 50 question blocks. Otherwise it can be too taxing. You should never take more than 50 questions the day of your exam. Unless you failed to study and need to cram for the exam, maybe. It happens.</p>
+			<p>Our <%= @state %> Class A Practice Test package offers hundreds of exam questions. We recommend taking practice tests in 50 question blocks, otherwise it can be too taxing. You should never take more than 50 questions the day of your exam, unless you failed to study and need to cram for the test maybe. It happens.</p>
 
-			<p>Our practice test portal looks exactly like the DMV's computer testing portal. We did that on our purpose. It is important for your practice test to look as much like the real thing as possible. Studies back this fact up! 
+			<p>Our practice test portal looks similar to the <%= @state %> DMV's computer testing portal. We did that on our purpose. It is important for your practice test to look as much like the real thing as possible. Studies back this fact up! 
 			Feel free to take your practice exam on your phone, tablet, or computer.</p>
 
 			<div class="row text-center">
@@ -107,7 +114,7 @@
 <div class="container">
   <div class="row text-center">
     <a name="pricing-section"></a>
-    <h2>CDL Class A Practice Test and Study Guide</h2>
+    <h2><%= @state %> CDL Class A Practice Test and Study Guide</h2>
     <p>Choose your package below to get started.</p>
   </div>
 	<div class="row pricing-row">
