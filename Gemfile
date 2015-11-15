@@ -52,6 +52,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.1'
   gem 'bullet'
   gem 'better_errors'
+  gem 'factory_girl_rails'
 end
 
 # Test Suite
@@ -59,7 +60,6 @@ group :test do
 	gem 'selenium-webdriver'
 	gem 'capybara'
 	gem 'launchy'
-	gem 'factory_girl_rails'
 	gem 'database_cleaner', github: 'bmabey/database_cleaner'
 end
 

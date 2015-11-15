@@ -2,17 +2,11 @@ require 'rails_helper'
 
 RSpec.describe ContactMessagesController, type: :controller do
 
-  describe "GET #new" do
-    it "returns http success" do
-      get :new
-      expect(response).to have_http_status(:success)
-    end
-  end
+  describe "POST #create" do
+    subject { ContactMessage.new(name: "John", email: "john@example.com", message: "Hello there.") }
 
-  describe "GET #create" do
     it "returns http success" do
-      get :create
-      expect(response).to have_http_status(:success)
+      expect(response).to be_success
     end
   end
 
