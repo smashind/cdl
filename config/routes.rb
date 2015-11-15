@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   get 'tank-vehicle-endorsement', to: 'pages#tank_vehicle_endorsement', as: :tank_vehicle_endorsement
   get 'passenger-vehicle-endorsement', to: 'pages#passenger_vehicle_endorsement', as: :passenger_vehicle_endorsement
   get 'school-bus-endorsement', to: 'pages#school_bus_endorsement', as: :school_bus_endorsement
+  get 'commitment', to: 'pages#commitment', as: :commitment
 
   # Successful payment/signup page
   get "success", to: 'pages#success'

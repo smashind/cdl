@@ -527,3 +527,39 @@ ul.book.book-test {
     margin-left: 20px;
   }
 }
+@font-face {
+  font-family: 'TheBoldFont';
+  src: font-url('theboldfont.ttf') format("truetype");
+}
+.commitment-page {
+  h1, h2 {
+    color: #000;
+    font-family: 'TheBoldFont';
+    text-transform: uppercase;
+  }
+  h1 {
+    font-size: 64px;
+    margin: 40px 0;
+    @media (max-width: 991px) and (min-width: 768px) {
+      br {
+        display: none;
+      }
+    }
+    @media (max-width: 617px) {
+      br {
+        display: none;
+      }
+    }
+  }
+  h2 {
+    margin-bottom: 40px;
+  }
+  p {
+    color: #000;
+    font-family: 'YellowTail';
+    font-size: 30px;
+  }
+  .steps {
+    margin: 50px 0 80px;
+  }
+}
