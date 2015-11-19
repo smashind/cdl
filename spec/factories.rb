@@ -4,6 +4,10 @@ FactoryGirl.define do
 		sequence(:email) { |n| "user#{n}@example.com" }
 		password "password"
 
+		trait :admin do
+			admin true
+		end
+		
 		trait :all_packages do
 			package "pcca"
 		end
