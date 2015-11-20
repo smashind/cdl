@@ -8,7 +8,7 @@
   <% if @attempt.score + @attempt.incorrect != @attempt.test.questions.count %>
     <h3>There was a problem calculating your score. Please try the test again.</h3>
   <% else %>
-		<h3>Your score was: <%= @attempt.score %> correct out of <%= @attempt.test.questions.count %> questions</h3>
+		<h3>Your score was: <%= @attempt.score %> correct out of <%= pluralize(@attempt.test.questions.count, 'question') %></h3>
 	<% end %>
 	<p><%= link_to "Try this test again", test_question_path(@attempt.test.id, @attempt.test.questions.first.id), class: "clear-score btn btn-info" %></p>
 <% else %>

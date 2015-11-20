@@ -72,17 +72,21 @@
 	  </div>
 	</div>
 	<div class="col-sm-5">
-	  <%= image_tag("cdl_study_guide.png") %>
+	  <%= link_to :class_a_endorsement do %>
+	    <%= image_tag "cdl_study_system.png", class: "main-product-image-home" %>
+	  <% end %>
 	  <div class="study-guide-info">
-	    <h3>The Ultimate Study Guide</h3>
+	    <h3>The Ultimate Study System</h3>
 	    <ul>
 	      <li>All 13 Sections Covered
 	      <li>All 7 Endorsements Covered
 	      <li>Includes All States
 	      <li>Class A Approved
+	      <li>Interactive tests
+	      <li>Automatic scoring
 	    </ul>
 
-	    <%= link_to "Learn More", :study_and_practice, class: "btn btn-default" %>
+	    <%= link_to "Get Instant Access", :class_a_endorsement, class: "btn btn-default" %>
 	  </div>
 	</div>
 </div>
