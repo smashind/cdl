@@ -22,6 +22,11 @@
 	<div class="row text-center">
 	  <h4>After you create your account, you'll be able to sign in and get access to your study materials!</h4>
 	</div>
+
+	<% if Rails.env.production? %>
+		<%= render partial: "pages/tracking/google_image_ads_conversion" %>
+	<% end %>
+
 <% else %>
-  Oops! It looks like there was a mistake.
+  Oops! It looks like there was a mistake. Please <%= mail_to "taylor@cdlstudyguidehq.com", "contact us" %> if you have any questions.
 <% end %>
