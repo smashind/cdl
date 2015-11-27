@@ -36,7 +36,7 @@ class AttemptsController < ApplicationController
         format.html { redirect_to @attempt, notice: 'Successfully saved.' }
         format.json { render :show, status: :created, location: @attempt }
       else
-        format.html { render :new }
+        format.html { redirect_to :dashboard, notice: "There was a problem trying to save your place." }
         format.json { render json: @attempt.errors, status: :unprocessable_entity }
       end
     end
@@ -50,7 +50,7 @@ class AttemptsController < ApplicationController
         format.html { redirect_to @attempt, notice: 'Successfully saved.' }
         format.json { render :show, status: :ok, location: @attempt }
       else
-        format.html { render :edit }
+        format.html { redirect_to :dashboard, notice: "There was a problem trying to save your place." }
         format.json { render json: @attempt.errors, status: :unprocessable_entity }
       end
     end

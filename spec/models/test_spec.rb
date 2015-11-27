@@ -6,6 +6,7 @@ RSpec.describe Test, type: :model do
 
   it { is_expected.to be_valid }
   it { is_expected.to respond_to(:name) }
+  it { is_expected.to respond_to(:code) }
 
   describe "when name is not present" do
   	before { test.name = nil }

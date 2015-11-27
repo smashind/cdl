@@ -47,11 +47,11 @@ FactoryGirl.define do
 	end
 
 	factory :attempt do
-    sequence(:test_id) { |n| n }
     user
     score 10
-    place 22
+    place 2
     incorrect 2
+    test
 
     trait :completed do
     	completed true
