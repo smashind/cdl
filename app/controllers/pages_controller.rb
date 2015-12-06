@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 	skip_before_action :verify_authenticity_token, only: [:success]
-	layout false, only: [:cdl_optin, :cdl_practice_test, :cdl_thank_you]
+	layout false, only: [:cdl_optin, :cdl_practice_test, :cdl_thank_you, :cdl_test_answers]
 
   def cdl_study_guides_and_practice_tests
     @states = [ "Alaska","Alabama","Arkansas","Arizona","California","Colorado","Connecticut","District of Columbia",

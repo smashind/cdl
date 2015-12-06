@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   get 'thanks', to: 'pages#cdl_thank_you'
 
   get 'cdl-study-guides-and-practice-tests', to: 'pages#cdl_study_guides_and_practice_tests', as: :study_and_practice
-
+  get 'cdl-test-answers', to: 'pages#cdl_test_answers', as: :cdl_test_answers
+  
   resources :attempts
   resources :choices
   resources :questions
