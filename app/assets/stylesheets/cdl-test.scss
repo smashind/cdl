@@ -2,6 +2,9 @@ body.cdl-test {
 	background: image-url("cdl-test/cdl-test-bg.png") repeat;
 	margin-bottom: 0;
 	padding-bottom: 0;
+	.container {
+	  width: 960px !important;
+	}
 }
 .container__cdl-test {
 	background: #FFF;
