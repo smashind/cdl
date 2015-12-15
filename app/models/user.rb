@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   serialize :package
 
   after_create :send_welcome_email
+  has_many :forum_topics, dependent: :destroy
+  has_many :forum_posts, dependent: :destroy
 
   def send_welcome_email
   	UserMailer.welcome(self).deliver_now

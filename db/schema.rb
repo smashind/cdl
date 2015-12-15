@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151110030704) do
+ActiveRecord::Schema.define(version: 20151209115135) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,35 @@ ActiveRecord::Schema.define(version: 20151110030704) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "forum_boards", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "forum_posts", force: :cascade do |t|
+    t.string   "title"
+    t.text     "body"
+    t.integer  "forum_topic_id"
+    t.integer  "user_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "forum_posts", ["forum_topic_id"], name: "index_forum_posts_on_forum_topic_id", using: :btree
+  add_index "forum_posts", ["user_id"], name: "index_forum_posts_on_user_id", using: :btree
+
+  create_table "forum_topics", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "forum_board_id"
+    t.integer  "user_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "forum_topics", ["forum_board_id"], name: "index_forum_topics_on_forum_board_id", using: :btree
+  add_index "forum_topics", ["user_id"], name: "index_forum_topics_on_user_id", using: :btree
 
   create_table "payment_notifications", force: :cascade do |t|
     t.text     "params"
@@ -96,5 +125,9 @@ ActiveRecord::Schema.define(version: 20151110030704) do
   add_foreign_key "attempts", "tests"
   add_foreign_key "attempts", "users"
   add_foreign_key "choices", "questions"
+  add_foreign_key "forum_posts", "forum_topics"
+  add_foreign_key "forum_posts", "users"
+  add_foreign_key "forum_topics", "forum_boards"
+  add_foreign_key "forum_topics", "users"
   add_foreign_key "questions", "tests"
 end

@@ -1,4 +1,18 @@
-FactoryGirl.define do
+FactoryGirl.define do  factory :forum_post do
+    title "MyString"
+body "MyText"
+forum_topic nil
+user nil
+  end
+  factory :forum_topic do
+    name "MyString"
+forum_board nil
+user nil
+  end
+  factory :forum_board do
+    name "MyString"
+  end
+
 	factory :user do
 		sequence(:name) { |n| "User #{n}" }
 		sequence(:email) { |n| "user#{n}@example.com" }
