@@ -11,6 +11,32 @@ class User < ActiveRecord::Base
   has_many :forum_topics, dependent: :destroy
   has_many :forum_posts, dependent: :destroy
 
+  def self.packages
+    { 
+      Complete: "pcca", 
+      HazmatComplete: "pchm", 
+      DoubleTripleComplete: "pcdt", 
+      TankComplete: "pctv", 
+      PassengerComplete: "pcpp", 
+      SchoolBusComplete: "pcsb",
+      ClassAPractice: "itca",
+      ClassBPractice: "itcb",
+      HazmatPractice: "ithm",
+      DoubleTriplePractice: "itdt",
+      TankPractice: "ittv",
+      PassengerPractice: "itpp",
+      SchoolBusPractice: "itsb",
+      ClassAStudy: "isca",
+      ClassBStudy: "iscb",
+      HazmatStudy: "ishm",
+      DoubleTripleStudy: "isdt",
+      TankStudy: "istv",
+      PassengerStudy: "ispp",
+      SchoolBusStudy: "issb",
+      None: "none"
+    }
+  end
+
   def send_welcome_email
   	UserMailer.welcome(self).deliver_now
   end

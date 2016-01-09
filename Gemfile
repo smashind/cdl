@@ -9,6 +9,12 @@ gem 'nested_form_fields'
 gem 'jquery-turbolinks'
 gem 'sweetalert-rails'
 
+# Authorization
+gem 'cancancan'
+
+# Admin area
+gem "administrate", "~> 0.1.2"
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 
