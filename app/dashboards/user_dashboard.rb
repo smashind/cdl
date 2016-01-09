@@ -8,7 +8,7 @@ class UserDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    attempts: Field::HasMany,
+    # attempts: Field::HasMany,
     forum_topics: Field::HasMany,
     forum_posts: Field::HasMany,
     id: Field::Number,
