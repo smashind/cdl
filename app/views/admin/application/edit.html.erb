@@ -29,7 +29,7 @@ It displays a header, and renders the `_form` partial to do the heavy lifting.
 </header>
 
 <% if page.resource.class.name == "User" %>
-<%= render "form", page: page %>
+  <%= render "edit_form", page: page %>
 <% else %>
-<%= render "form", page: page %>
+  <%= render "form", page: page %>
 <% end %>
