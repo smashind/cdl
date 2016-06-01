@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.3'
 
 gem 'pg'
-gem 'devise'
+gem 'devise', '~> 3.5.2'
 gem 'nested_form_fields'
 gem 'jquery-turbolinks'
 gem 'sweetalert-rails'
@@ -62,7 +62,7 @@ group :development, :test do
 end
 
 # Test Suite
-group :test do 
+group :test do
 	gem 'selenium-webdriver'
 	gem 'capybara'
 	gem 'launchy'
