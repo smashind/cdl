@@ -24,12 +24,14 @@
 	  ga('create', 'UA-69264714-2', 'auto');
 	  ga('send', 'pageview');
   </script>
+  <!-- A/B Testing -->
+  <script src="//load.sumome.com/" data-sumo-site-id="08202171dba54b85d3b9e49e52e4d79c69e3cbd8eb22d5381f2002dbf2de8be5" async="async"></script>
 </head>
 <body<% if user_signed_in? %> account-body data-no-turbolink="true"<% end %>>
   <div class="navbar navbar-default navbar-static-top">
 	  <div class="container">
 	    <div class="navbar-header">
-	      
+
 	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
@@ -46,8 +48,8 @@
 		      <%= link_to 'CDL Study Guide and Practice Tests', :study_and_practice, class: "navbar-brand" %>
 		    <% end %>
 	    </div>
-	    <div class="navbar-collapse collapse" id="navbar">   
-	      
+	    <div class="navbar-collapse collapse" id="navbar">
+
 	      <ul class="nav navbar-nav navbar-right">
 	      	<% if user_signed_in? %>
 	      	  <li class="dropdown">
@@ -64,7 +66,7 @@
 		            <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
 		          </ul>
 	        	</li>
-	        	
+
 	        <% else %>
 	          <%= link_to "Pass Your Tests Now", :study_and_practice, class: "btn btn-danger navbar-btn order" %>
 		        <li><%= link_to "Log In", new_user_session_path %></li>
