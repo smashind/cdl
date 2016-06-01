@@ -1,11 +1,4 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    DashboardManifest::DASHBOARDS.each do |dashboard_resource|
-      resources dashboard_resource
-    end
-
-    root controller: DashboardManifest::ROOT_DASHBOARD, action: :index
-  end
 
   root 'pages#index'
   get 'cdl-study-guide', to: 'pages#cdl_optin', as: :cdl_study_guide
@@ -14,7 +7,7 @@ Rails.application.routes.draw do
 
   get 'cdl-study-guides-and-practice-tests', to: 'pages#cdl_study_guides_and_practice_tests', as: :study_and_practice
   get 'cdl-test-answers', to: 'pages#cdl_test_answers', as: :cdl_test_answers
-  
+
   resources :attempts
   resources :choices
   resources :questions
