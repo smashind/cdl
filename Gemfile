@@ -13,7 +13,7 @@ gem 'sweetalert-rails'
 gem 'cancancan'
 
 # Admin area
-gem "administrate", "~> 0.1.2"
+#gem "administrate", "~> 0.1.2"
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
