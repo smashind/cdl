@@ -23,8 +23,8 @@
 	}
 }
 .main-product-image-home {
-  max-width: 450px; 
-  margin: 10px 0; 
+  max-width: 450px;
+  margin: 10px 0;
 }
 h1.home {
 	color: #5F7989;
@@ -40,7 +40,7 @@ h1.home {
 	}
 }
 p.home-tagline {
-	color: #AA3333; 
+	color: #AA3333;
 	font-size: 15px;
 	@media (max-width: 660px) {
 		text-align: center;
@@ -98,7 +98,7 @@ p.home-bullets {
       background-image: image-url("styling/down.png"), -webkit-linear-gradient(top, #E5E5E5, #F4F4F4); /* For Chrome and Safari */
       background-image: image-url("styling/down.png"), -moz-linear-gradient(top, #E5E5E5, #F4F4F4); /* For old Fx (3.6 to 15) */
       background-image: image-url("styling/down.png"), -ms-linear-gradient(top, #E5E5E5, #F4F4F4); /* For pre-releases of IE 10*/
-      background-image: image-url("styling/down.png"), -o-linear-gradient(top, #E5E5E5, #F4F4F4); /* For old Opera (11.1 to 12.0) */ 
+      background-image: image-url("styling/down.png"), -o-linear-gradient(top, #E5E5E5, #F4F4F4); /* For old Opera (11.1 to 12.0) */
       background-image: image-url("styling/down.png"), linear-gradient(to bottom, #E5E5E5, #F4F4F4); /* Standard syntax; must be last */
       background-position: center right;
       background-repeat: no-repeat;
@@ -181,7 +181,7 @@ p.state-paragraph {
 p.home-or {
   border-bottom: 1px solid #2C3E50;
   font-style: italic;
-  line-height: 0.1em; 
+  line-height: 0.1em;
   margin: 30px auto;
   max-width: 250px;
   text-align: center;
@@ -316,68 +316,68 @@ a.other-packages {
     margin: 0;
   }
 }
-.pricing-table ul{ 
-  border-radius: 3px; 
-  margin: 3px; 
-  width: 30%; 
-  text-align: center; 
-  list-style: none; 
-  float: left; 
-  padding: 0px; 
+.pricing-table ul{
+  border-radius: 3px;
+  margin: 3px;
+  width: 30%;
+  text-align: center;
+  list-style: none;
+  float: left;
+  padding: 0px;
   background-color: #FFFFFF;
   @media (max-width: 630px) {
     width: 100%;
     margin-bottom: 20px;
   }
-} 
-.pricing-table ul li{ 
-  padding: 15px; 
-  background-color: #F9F9F9; 
-  border-width: 2px; 
-  border-color: #B83737; 
-  border-radius: 0px; 
-  border-bottom-width: 2px; 
-  font-size: 16px; 
-} 
-.pricing-table ul .heading{ 
-  color: #FFFFFF; 
-  background-color: #2C3E50; 
-  font-size: 22px; 
-} 
+}
+.pricing-table ul li{
+  padding: 15px;
+  background-color: #F9F9F9;
+  border-width: 2px;
+  border-color: #B83737;
+  border-radius: 0px;
+  border-bottom-width: 2px;
+  font-size: 16px;
+}
+.pricing-table ul .heading{
+  color: #FFFFFF;
+  background-color: #2C3E50;
+  font-size: 22px;
+}
 .pricing-table ul .price {
-  border-top: 1px solid #EDEDED; 
+  border-top: 1px solid #EDEDED;
   font-size: 75px;
   .dollar {
     font-size: 18px;
     position: relative;
     bottom: 40px;
   }
-} 
-.pricing-table ul .action{ 
-    font-size: 14px; 
-    color: #2A6496; 
-} 
-.feature{ 
-  -webkit-transform: scale(1.1); 
-  transform: scale(1.1); 
-  box-shadow: 0px 1px 20px 1px rgba(0,0,0,.5); 
+}
+.pricing-table ul .action{
+    font-size: 14px;
+    color: #2A6496;
+}
+.feature{
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  box-shadow: 0px 1px 20px 1px rgba(0,0,0,.5);
   @media (max-width: 630px) {
-    -webkit-transform: scale(1); 
-    transform: scale(1); 
+    -webkit-transform: scale(1);
+    transform: scale(1);
     box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
   }
-} 
-.pricing-table .action a{ 
-  border-color: #B83737; 
-  border-width: 0px; 
-  border-radius: 2px; 
-  background-color: #EEEEEE; 
-  padding-top: 5px; 
-  padding-bottom: 5px; 
-  padding-left: 15px; 
-  padding-right: 15px; 
-  border-style: solid; 
-  color: #000000; 
+}
+.pricing-table .action a{
+  border-color: #B83737;
+  border-width: 0px;
+  border-radius: 2px;
+  background-color: #EEEEEE;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-style: solid;
+  color: #000000;
 }
 .testimonial {
   background: #EDEDED;
@@ -564,5 +564,11 @@ ul.book.book-test {
   }
   .steps {
     margin: 50px 0 80px;
+  }
+}
+.faq-section {
+  margin-top: 40px;
+  h3, h4 {
+    font-weight: bold;
   }
 }

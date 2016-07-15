@@ -17,7 +17,7 @@
 
 <div class="row test-page-top">
   <div class="col-sm-12">
-	  
+
     <p>Welcome to the CDL Study Guide System for the <%= @state %>  Class A exam! My name is Taylor, and for three years I have been teaching hundreds of students how to pass their CDL exam. Here’s the deal: I believe in our CDL Study System so much that I guarantee that you will love it and pass your <%= @state %>  written exam or I will refund ever penny.</p>
 
     <p>Buying the <%= @state %> Class A Study System will unlock all our materials to ace every endorsement. That includes: Doubles/Triples, Tank Vehicles, Hazardous Material, Passenger, and School Bus. It is the most comprehensive package on the internet. No other website or company comes close to offering what we are offering you here. If you're serious about passing your <%= @state %> Class A exam, you can't afford to pass this up.</p>
@@ -82,14 +82,14 @@
 			  <li>Real <%= @state %> Exam Questions!
 			  <li>Hundreds of Questions!
 			  <li>Same as the DMV Test!
-			  <li>Take on any device 
+			  <li>Take on any device
 			</ul>
 
 			<p>Many of the exam questions that see in your practice test are what you will see on the actual <%= @state %> Class A Practice Test. Some of our exam questions are even harder than the actual test! If you are able to pass our practice tests, you will have no problem passing the real thing. Our writers have spent hundreds of hours preparing these test questions. The time and effort shows.</p>
 
 			<p>Our <%= @state %> Class A Practice Test package offers hundreds of exam questions. We recommend taking practice tests in 50 question blocks, otherwise it can be too taxing. You should never take more than 50 questions the day of your exam, unless you failed to study and need to cram for the test maybe. It happens.</p>
 
-			<p>Our practice test portal looks similar to the <%= @state %> DMV's computer testing portal. We did that on our purpose. It is important for your practice test to look as much like the real thing as possible. Studies back this fact up! 
+			<p>Our practice test portal looks similar to the <%= @state %> DMV's computer testing portal. We did that on our purpose. It is important for your practice test to look as much like the real thing as possible. Studies back this fact up!
 			Feel free to take your practice exam on your phone, tablet, or computer.</p>
 
 			<div class="row text-center">
@@ -156,3 +156,71 @@
 		</div>
 	</div>
 	<%= render partial: "instructions" %>
+
+	<div class="row">
+	  <div class="col-sm-10 col-sm-offset-1 faq-section">
+	    <h3>Commercial Driver's License Frequently Asked Questions</h3>
+	    <hr>
+	    <h4>Which vehicles require a CDL?</h4>
+
+      <p><strong>Class A</strong></p>
+
+      <p>Vehicles that have a total combination weight (the gross vehicle weight rating, or GVWR) of more than 26,001 lbs, which includes the weight of vehicles over 10,000 lbs being towed, require a Class A Commercial Driver's License.</p>
+
+      <p><strong>Class B</strong></p>
+
+      <p>Single vehicles with a weight of more than 26,001 lbs require a Class B CDL. This includes vehicles that are towing other vehicles weighing less than 10,000 lbs.</p>
+
+      <p><strong>Class C</strong></p>
+
+      <p>Single vehicles that don't fall under the requirements of Class A or Class B CDLs and also are built to transport more than 15 passengers (this includes the driver) require a Class C CDL. If the vehicle doesn't fall under Class A or Class B requirements but is transporting hazardous material, it also requires a Class C CDL.</p>
+
+      <hr>
+
+	    <h4>Which class CDL do I need?</h4>
+
+      <p>The class of CDL you need depends on what you plan on driving. Refer to the above requirements to determine what kind of license is required to operae a specific vehicle.</p>
+
+      <p>The job you are looking to apply for will specifiy exactly what license you need. If you're not looking at a specific job but want to have the most options, you'll have by far the most opportunities with a Class A CDL.</p>
+
+      <p>According to data gathered from job boards, Class A CDL job positions accounted for around 96% of all the job postings. Class B CDL job positions accounted for 3% of the open positions and Class C accounted for the remaining 1%.</p>
+
+      <p>Keep in mind that even though there are much fewer Class B and Class C positions open, there are still thousands of opportunities out there.</p>
+
+      <hr>
+
+      <h4>Which Class CDL pays the most?</h4>
+
+      <p>On average, Class A CDL positions pay the most. By having a Class A CDL with all the endorsements, you will not only have access to thousands of job opportunities, you'll be in the best position to earn an excellent salary.</p>
+
+      <p>Salary estimates for Class A CDL positions range from roughly $40,000 per year to over $65,000 per year. For Class B and Class CDL positions, salaries range from $25,000 per year to more thant $45,000 per yer (the majority of positions in the $25,000 per year to $35,000 per year range).</p>
+
+      <p>If you are looking at a specific job, it will let you know the salary and CDL required. If you want to maximize the number of open positions and have the highest earning potential, a Class A with all endorsements is the best bet.</p>
+
+      <hr>
+
+      <h4>Which CDL Test is the Hardest?</h4>
+
+      <p>The hardest CDL test section is the Airbrake test. The airbrake exam requires you to memorize a good portion of Section 5 in the DMV CDL Handbook.</p>
+
+      <p>Keep in mind that more than 75% of everyone that takes the Class A CDL exam without studying or preparation fail. That's why you either need to invest in study materials or enroll in study classes.</p>
+
+      <p>There are three parts to the exam. The first is the written exam. Do not underestimate this part. Most people that have passed the exams will tell you not to attempt to guess on the questions or your own experience to know the answers. The Airbrake test is part of the written exam.</p>
+
+      <p>The second part of the exam is the pre-trip inspection. This tests your knowledge of vehicle inspections and tests that you understand when commercial vehicles are safe and unsafe to operate on the road. Thankfully, you can learn and follow the pre-trip inspection steps one way because they do not change.</p>
+
+      <p>The final part of the exam is the road and yard skills test. This tests your actual ability to operate the commercial vehicle. What exactly will be included in the test may vary slightly from state to state so make sure that you are fully aware of the regulations in the state you plan to get licensed in.</p>
+
+      <p>The part of the CDL exam that ends up being the most difficult for you may depend will likely depend on what you're least prepared for. If you don't prepare, your odds of passing the exam are very slim. It is highly recommended that you invest in study materials or take classes prior to taking the exam if you hope to pass the first time.</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row text-center">
+    <div class="col-sm-10 col-sm-offset-1">
+      <h3>Pass your exam the first time
+        <%= link_to "Get Your Study Materials", "#", class: "btn btn-success pricing-section-link" %></h3>
+      </h3>
+    </div>
+  </div>
